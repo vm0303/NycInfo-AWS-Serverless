@@ -94,97 +94,86 @@ textarea {
    ========================================================================== */
 
 
-
-
-
-
-
 /* Generic */
 
-body{
-  width: 100vw;
-  height: 100vh;
+body {
+    width: 100vw;
+    height: 100vh;
 
-  background-image: url(../images/background.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
 
-  font-family: "fairplex-wide";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: "fairplex-wide";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
-
-
 
 
 /* Logo */
 
 
-header{
-  width: 100vw;
-  padding: 30px 0 100px;
+header {
+    width: 100vw;
+    padding: 30px 0 100px;
 }
 
-header img{
-  margin: 0 auto;
-  display: block;
+header img {
+    margin: 0 auto;
+    display: block;
 }
 
 @media screen and (max-width: 600px) {
-  header{
-    padding: 30px 0 0;
-  }
+    header {
+        padding: 30px 0 0;
+    }
 
-  header img{
-    width: 35%;
-  }
+    header img {
+        width: 35%;
+    }
 }
-
-
-
 
 
 /* Forms */
 
-.form-wrap{
+.form-wrap {
     width: 35%;
     margin: 0 auto;
 }
 
-.left-form{
-  width: 47.5%;
+.left-form {
+    width: 47.5%;
 
-  float: left;
+    float: left;
 }
 
-.right-form{
-  width: 47.5%;
+.right-form {
+    width: 47.5%;
 
-  float: right;
+    float: right;
 }
 
 
 @media screen and (max-width: 1200px) {
-  .form-wrap{
-    width: 90%;
-  }
+    .form-wrap {
+        width: 90%;
+    }
 }
 
 
 @media screen and (max-width: 600px) {
-  .form-wrap{
-    width: 90%;
-  }
+    .form-wrap {
+        width: 90%;
+    }
 
-  .left-form{
-    width: 100%;
-  }
+    .left-form {
+        width: 100%;
+    }
 
-  .right-form{
-    width: 100%;
-  }
+    .right-form {
+        width: 100%;
+    }
 }
 
 
@@ -216,7 +205,9 @@ input[type=text]:focus, input[type=password]:focus {
 
 input[type=text]:valid, input[type=password]:valid {
     border-bottom: 2px solid #f50856;
-} /* This is a quick fix to get an authorization / valid entry state without using JS */
+}
+
+/* This is a quick fix to get an authorization / valid entry state without using JS */
 
 input[type=submit] {
     width: 200px;
@@ -246,75 +237,53 @@ input[type=submit]:hover {
 
 
 ::-webkit-input-placeholder { /* Chrome */
-  color: white;
-  font-style: italic;
-  opacity: .4;
+    color: white;
+    font-style: italic;
+    opacity: .4;
 
-  font-family: "fairplex-wide";
-  color: white;
-  font-weight: 400;
+    font-family: "fairplex-wide";
+    color: white;
+    font-weight: 400;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
-  color: white;
-  font-style: italic;
-  opacity: .4;
+    color: white;
+    font-style: italic;
+    opacity: .4;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
-  color: white;
-  opacity: .4;
-  font-style: italic;
+    color: white;
+    opacity: .4;
+    font-style: italic;
 }
+
 :-moz-placeholder { /* Firefox 4 - 18 */
-  color: white;
-  opacity: .4;
-  font-style: italic;
+    color: white;
+    opacity: .4;
+    font-style: italic;
 }
-
-
-
 
 
 /* Typography */
 
-h1{
-  color: white;
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 10px 0;
+h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px 0;
 }
 
 
 @media screen and (max-width: 1200px) {
-  h1{
-    margin: 60px 0 0;
-    font-size: 35px;
-  }
+    h1 {
+        margin: 60px 0 0;
+        font-size: 35px;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==========================================================================
@@ -429,9 +398,9 @@ h1{
 }
 
 @media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -464,7 +433,6 @@ h1{
     /*
      * Don't show links for images, or javascript/internal links
      */
-
     .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {

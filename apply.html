@@ -1,81 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<!--suppress ALL -->
 <html class="no-js" lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apply - Wild Rydes</title>
-
-  <link rel="stylesheet" href="css/font.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <script src="js/vendor/modernizr.js"></script>
+<meta charset="utf-8"/>
+<meta content="" name="description"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Join Our Team - NYCInfo Tours</title>
+<link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/font.css" rel="stylesheet"/>
+<link href="css/vendor.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/apply.css" rel="stylesheet"/>
+<script src="js/vendor/modernizr.js"></script>
 </head>
 <body class="page-apply">
+<header autofocus="" class="site-header">
+<h1 class="title">Join our team!</h1>
+<nav class="site-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="booking.html">Book A Tour With Us!</a></li>
+<li><a href="investors.html">Meet The Team!</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="apply.html">Join Our Team!</a></li>
+</ul>
+</nav>
+<button class="btn-menu" type="button"><span>Menu</span></button>
+</header>
+<section class="apply-about">
+<div class="row column large-9 xlarge-6 xxlarge-4">
+<h2 class="apply-title">Join NYCInfo Tours!</h2>
+<p class="apply-subtitle">
+            We’re building a local-first tour experience—friendly guides, clear meeting points, and routes that feel like NYC.
+            If you love people, storytelling, and the city, don't hesitate to apply below!
+        </p>
+<!-- Required note -->
+<p class="required-note"><span class="req-star">*</span> = required</p>
+<div class="form-container">
+<form class="form" id="applyForm" novalidate="">
+<!-- Personal info -->
+<div class="input-box">
+<input autocomplete="off" id="firstName" name="firstName" type="text"/>
+<label for="firstName">First Name <span class="req-star">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input autocomplete="off" id="lastName" name="lastName" type="text"/>
+<label for="lastName">Last Name <span class="req-star">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input autocomplete="off" id="email" maxlength="320" name="email" type="text"/>
+<label for="email">Email <span class="req-star">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input autocomplete="off" id="phone" name="phone" type="text"/>
+<label for="phone">Phone Number <span class="req-star">*</span></label>
+<small></small>
+</div>
+<!-- Role -->
+<div class="input-box">
+    <select id="role" name="role">
+        <option value="" disabled hidden selected></option>
+        <option value="operations">Operations</option>
+        <option value="lead-guide">Lead Guide</option>
+        <option value="customer-experience">Customer Experience</option>
+        <option value="partnerships">Partnerships</option>
+        <option value="technology-experience">Technology & Experience</option>
+    </select>
 
-  <header class="site-header">
-    <div class="site-logo">Wild Rydes</div>
+<label for="role">Role you’re applying for <span class="req-star">*</span></label>
+<small></small>
+</div>
+<!-- Availability -->
+<div class="input-box">
+<select id="availability" name="availability">
+    <option disabled="" hidden="" selected="" value=""></option>
+<option value="weekdays">Weekdays</option>
+<option value="weekends">Weekends</option>
+<option value="both">Both</option>
+<option value="flexible">Flexible</option>
+</select>
+<label for="availability">Availability <span class="req-star">*</span></label>
+<small></small>
+</div>
+<!-- Optional -->
+<div class="input-box">
+<input autocomplete="off" id="neighborhood" name="neighborhood" type="text"/>
+<label for="neighborhood">Neighborhood you know best</label>
+<small></small>
+</div>
+<!-- Experience -->
+<div class="input-box">
+<textarea id="whyYou" name="whyYou" rows="4"></textarea>
+<label for="whyYou">Why should we consider you <span class="req-star">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<textarea id="hobbies" name="hobbies" rows="3"></textarea>
+<label for="hobbies">Hobbies / interests <span class="req-star">*</span></label>
+<small></small>
+</div>
+<!-- Optional -->
+<div class="input-box">
+<textarea id="story" name="story" rows="4"></textarea>
+<label for="story">Tell us a short NYC story you love sharing</label>
+<small></small>
+</div>
+<!-- Optional -->
+<div class="input-box">
+<input autocomplete="off" id="link" name="link" type="text"/>
+<label for="link">Portfolio / LinkedIn (optional)</label>
+<small></small>
+</div>
+<!-- Submit -->
+<div class="input-box">
+<input type="submit" value="Submit Application"/>
+</div>
+</form>
+</div>
+<p class="apply-footnote">
+            We read every application. If you’re a great fit, we’ll reach out with next steps.
+        </p>
+</div>
+</section>
+<!-- APPLY REVIEW MODAL -->
+<div class="modal" id="applyReviewModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="applyModalTitle">
+        <h4 id="applyModalTitle">Review Form Details</h4>
 
-    <div class="row column medium-8 large-6 xlarge-5 xxlarge-4">
-      <h1 class="title">Apply Today!</h1>
+        <p class="modal-note">Please review the details below. If you need to make changes, click <i class="underline-note">Back</i>.</p>
+        <p class="modal-note">Otherwise, <i class="underline-note">wait 10 seconds</i> and then click <i class="underline-note">Submit application</i>. This helps prevent accidental submissions.</p>
+
+        <p>Name: <span id="applyModalName"></span></p>
+        <p>Email: <span id="applyModalEmail"></span></p>
+        <p>Phone Number: <span id="applyModalPhone"></span></p>
+        <p>Role: <span id="applyModalRole"></span></p>
+        <p>Availability: <span id="applyModalAvailability"></span></p>
+        <p>Neighborhood: <span id="applyModalNeighborhood"></span></p>
+
+        <p>Why should we consider you: <span id="applyModalWhy"></span></p>
+        <p>Hobbies / interests: <span id="applyModalHobbies"></span></p>
+        <p>Story: <span id="applyModalStory"></span></p>
+        <p>Link: <span id="applyModalLink"></span></p>
+
+        <button class="modal-button" id="applyModalBackBtn" type="button">Back</button>
+
+        <button class="modal-button" id="applyModalWaitBtn" type="button" disabled>
+            <div class="countdown" id="applyWaitSeconds"></div>
+        </button>
+
+        <button class="modal-button" id="applyModalConfirmBtn" type="button" style="display:none;">
+            Submit application
+        </button>
     </div>
+</div>
 
-    <nav class="site-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="unicorns.html">Meet the Unicorns</a></li>
-        <li><a href="investors.html">Investors & Board of Directors</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="apply.html">Apply</a></li>
-      </ul>
-    </nav>
-    <button type="button" class="btn-menu"><span>Menu</span></button>
-  </header>
-
-  <section class="content">
-    <div class="row column medium-10 large-7 xlarge-5">
-      <p>Wild Rydes is on the hunt for the most mythical creature of all: talented software engineers! We’re seeking a technical dream team who will help us build a future where every person has a unicorn to ryde.</p>
-      <p>From a technical standpoint, Wild Rydes believes in a future where there are no servers to provision, manage, or scale! Interested candidates can begin following the Serverless Way by exploring the following options:</p>
-      <ul>
-        <li>Enter our <a href="http://awschatbot.devpost.com" target="_blank">hackathon</a></li>
-        <li>Train in the art of serverless</li>
-      </ul>
-
-      <h2>The Serverless Manifesto:</h2>
-      <p>Functions are the unit of deployment and scaling.</p>
-      <p>No machines, VMs, or containers visible in the programming model.</p>
-      <p>Permanent storage lives elsewhere.</p>
-      <p>Scales per request. Users cannot over- or under-provision capacity.</p>
-      <p>Never pay for idle (no cold servers/containers or their costs).</p>
-      <p>Implicitly fault tolerant because functions can run anywhere.</p>
-      <p>BYOC - Bring your own code.</p>
-      <p>Metrics and logging are a universal right.</p>
+<!-- Application confirmation modal (shown after successful submit) -->
+<div id="applicationConfirmationModal" class="bookingConfirmationModal" aria-hidden="true">
+    <div class="applicationConfirmationModal-content" role="dialog" aria-modal="true" aria-labelledby="applicationConfirmationTitle">
+        <span class="closeConfirmationModal" id="closeApplicationConfirmationModal">×</span>
+        <h4 id="applicationConfirmationTitle">Thank you!</h4>
+        <p class="modal-note">Your application was submitted successfully.</p>
+        <p class="modal-note">We’ll review it and follow up by email.</p>
+        <p class="modal-note">Click the X on the top right to close this message.</p>
     </div>
-  </section>
+</div>
 
-  <footer class="site-footer">
-    <div class="row column">
-      <nav class="footer-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="unicorns.html">Meet the Unicorns</a></li>
-          <li><a href="investors.html">Investors & Board of Directors</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="apply.html">Apply</a></li>
-        </ul>
-      </nav>
-    </div>
 
-    <div class="row column">
-      <div class="footer-legal">
-        &copy;WildRydes Inc<br>
-        All Rights Reserved
-      </div>
-    </div>
-  </footer>
+<footer class="site-footer">
+<div class="row column">
+<nav class="footer-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="booking.html">Book A Tour With Us!</a></li>
+<li><a href="investors.html">Meet The Team!</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="apply.html">Join Our Team!</a></li>
+</ul>
+</nav>
+</div>
+<div class="row column">
+<div class="footer-legal">
+            ©NYCInfo Tours Inc.<br/>
+            All Rights Reserved
+        </div>
+</div>
+</footer>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js/bundle/libphonenumber-js.min.js"></script>
+<script src="js/apply.js"></script>
+<!-- Floating label helper (keeps label up after typing/selecting) -->
+<script>
+    (function () {
+        const fields = document.querySelectorAll(
+            '.page-apply .input-box input, .page-apply .input-box textarea, .page-apply .input-box select'
+        );
 
-  <script src="js/vendor.js"></script>
+        function sync(el) {
+            const hasValue = (el.tagName === 'SELECT')
+                ? !!el.value
+                : (el.value && el.value.trim().length > 0);
 
-  <script src="js/main.js"></script>
+            el.classList.toggle('valid', hasValue);
+        }
+
+        fields.forEach(el => {
+            sync(el);
+            el.addEventListener('input', () => sync(el));
+            el.addEventListener('change', () => sync(el));
+            el.addEventListener('focus', () => el.classList.add('focused'));
+            el.addEventListener('blur', () => el.classList.remove('focused'));
+        });
+    })();
+    function displayErrorToast(message) {
+        // Allow HTML so we can show bullet lines nicely
+        Toastify({
+            text: message.replace(/\n/g, "<br>"),
+            escapeMarkup: false,
+            duration: 6500,          // ✅ auto close
+            gravity: 'top',
+            position: 'center',
+            style: {
+                background: "radial-gradient(circle at 10.6% 22.1%, rgb(206, 18, 18) 0%, rgb(122, 21, 21) 100.7%)",
+            },
+            close: true,
+            stopOnFocus: true
+        }).showToast();
+    }
+</script>
 </body>
 </html>

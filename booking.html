@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<!--suppress ALL -->
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8"/>
+<meta content="" name="description"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>NYCInfo - Book Your Tour!</title>
+<link href="css/font.css" rel="stylesheet"/>
+<link href="css/vendor.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/booking.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/>
+<link href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="page-booking">
+<header class="site-header" title="Photo by Luca Bravo on Unsplash">
+<h1 class="title">Book your tour with us!</h1>
+<nav class="site-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="booking.html">Book A Tour With Us!</a></li>
+<li><a href="investors.html">Meet The Team!</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="apply.html">Join Our Team!</a></li>
+</ul>
+</nav>
+<button class="btn-menu" type="button"><span>Menu</span></button>
+</header>
+<section class="booking-about">
+<div class="row column large-9 xlarge-6 xxlarge-4">
+<h2 class="booking-title">Book your tour with us!</h2>
+<p class="required-note"><span class="req-star">*</span> = required</p>
+<div class="form-container">
+<form class="form" id="bookTour">
+<div class="input-box">
+<input autocomplete="off" id="f_name" name="f_name" type="text"/>
+<label for="f_name">First Name:<span class="req">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input autocomplete="off" id="l_name" name="l_name" type="text"/>
+<label for="l_name">Last Name:<span class="req">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input id="email" maxlength="254" name="email" type="email"/>
+<label for="email">Email:<span class="req">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input id="phone" name="phone" type="text"/>
+<label for="phone">Phone Number:<span class="req">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input class="numOfAdultsInput" id="numOfAdultsInput" inputmode="numeric" max="12" min="1" name="numOfAdultsInput" step="1" type="number"/>
+<label class="numOfAdultsLabel" for="numOfAdultsInput">Number Of Adults:<span class="req">*</span></label>
+<label class="additionalTextLabel" for="numOfAdultsInput">(Max: 12)</label>
+<small></small>
+</div>
+<div class="input-box">
+<input class="numOfChildrenInput" id="numOfChildrenInput" inputmode="numeric" max="12" min="0" name="numOfChildrenInput" step="1" type="number"/>
+<label class="numOfChildrenLabel" for="numOfChildrenInput">Number Of Children:<span class="req">*</span></label>
+<label class="additionalTextLabel" for="numOfChildrenInput">(Max: 12 - Enter 0 if none)</label>
+<small></small>
+</div>
+<fieldset class="tourPackages" id="c-group-filled">
+<label class="tourPackages-title"><u>Pick your tour package!</u></label>
+<p class="note">All the prices listed below are final for each adult and child.</p>
+<!-- Package 1 -->
+<label class="options" for="cf1">
+<input class="filled" id="cf1" name="tourPackage" type="radio" value="15"/>
+<span class="label-text"> Explorer - Budget-friendly option covering must-see attractions - $15.00 per person</span>
+</label>
+<div class="additionalOptions" id="additionalOptions" style="display: none;">
+<hr/>
+<label class="transportation-title"><u>Pick your transportation!</u></label>
+<p class="note">This is optional for this package</p>
+<p class="note">You can only choose one transportation service.</p>
+<label class="options" for="ao1">
+<input class="filled" id="ao1" name="additionalOption" type="radio" value="5"/>
+<span class="label-text">Horse Rickshaw - $5.00 per person</span>
+</label>
+<label class="options" for="ao2">
+<input class="filled" id="ao2" name="additionalOption" type="radio" value="10"/>
+<span class="label-text">Bus - $10.00 per person</span>
+</label>
+<hr/>
+</div>
+<!-- Package 2 -->
+<label class="options" for="cf2">
+<input class="filled" id="cf2" name="tourPackage" type="radio" value="27"/>
+<span class="label-text">Discovery - Well-rounded tour of landmarks and hidden gems  - $27.00 per person</span>
+</label>
+<div class="additionalOptions" id="additionalOptions2" style="display: none;">
+<hr/>
+<label class="transportation-title"><u>Pick your transportation!</u></label>
+<p class="note">This is optional for this package</p>
+<p class="note">You can only choose one transportation service.</p>
+<label class="options" for="ao3">
+<input class="filled" id="ao3" name="additionalOption" type="radio" value="0"/>
+<span class="label-text">Horse Rickshaw - FREE!</span>
+</label>
+<label class="options" for="ao4">
+<input class="filled" id="ao4" name="additionalOption" type="radio" value="12"/>
+<span class="label-text">Bus - $12.00 per person</span>
+</label>
+<label class="options" for="ao5">
+<input class="filled" id="ao5" name="additionalOption" type="radio" value="17"/>
+<span class="label-text">Car - $17.00 per person</span>
+</label>
+<hr/>
+</div>
+<!-- Package 3 -->
+<label class="options" for="cf3">
+<input class="filled" id="cf3" name="tourPackage" type="radio" value="47"/>
+<span class="label-text">Cultural Immersion - Dive into NYC's diverse culture and neighborhoods - $47.00 per person</span>
+</label>
+<div class="additionalOptions" id="additionalOptions3" style="display: none;">
+<hr/>
+<label class="transportation-title"><u>Pick your transportation!</u></label>
+<p class="note">This is REQUIRED for this package</p>
+<p class="note">You can only choose one transportation service.</p>
+<label class="options" for="co1">
+<input class="filled" id="co1" name="requiredOption1" type="radio" value="0"/>
+<span class="label-text">Horse Rickshaw - FREE!</span>
+</label>
+<label class="options" for="co2">
+<input class="filled" id="co2" name="requiredOption1" type="radio" value="0"/>
+<span class="label-text">Bus - FREE!</span>
+</label>
+<label class="options" for="co3">
+<input class="filled" id="co3" name="requiredOption1" type="radio" value="28"/>
+<span class="label-text">Car - $28.00 per person</span>
+</label>
+<small class="error-message" id="transportationError1" style="display: none">
+                            Transportation is required for the selected package.
+                        </small>
+<hr/>
+</div>
+<!-- Package 4 -->
+<label class="options" for="cf4">
+<input class="filled" id="cf4" name="tourPackage" type="radio" value="75"/>
+<span class="label-text">VIP Adventure - Exclusive access and unique experiences - $75.00 per person</span>
+</label>
+<div class="additionalOptions" id="additionalOptions4" style="display: none;">
+<hr/>
+<label class="transportation-title"><u>Pick your transportation!</u></label>
+<p class="note">This is REQUIRED for this package</p>
+<p class="note">You can only choose one transportation service.</p>
+<label class="options" for="vo1">
+<input class="filled" id="vo1" name="requiredOption2" type="radio" value="0"/>
+<span class="label-text">Bus - FREE!</span>
+</label>
+<label class="options" for="vo2">
+<input class="filled" id="vo2" name="requiredOption2" type="radio" value="0"/>
+<span class="label-text">Car - FREE!</span>
+</label>
+<label class="options" for="vo3">
+<input class="filled" id="vo3" name="requiredOption2" type="radio" value="60"/>
+<span class="label-text">Helicopter - $60.00 per person</span>
+</label>
+<small class="error-message" id="transportationError2" style="display: none">
+                            Transportation is required for the selected package.
+                        </small>
+<hr/>
+</div>
+<!-- Package 5 -->
+<label class="options" for="cf5">
+<input class="filled" id="cf5" name="tourPackage" type="radio" value="105"/>
+<span class="label-text"> Ultimate Adventure - Comprehensive and unforgettable journey through the city - $105.00 per person</span>
+</label>
+<div class="additionalOptions" id="additionalOptions5" style="display: none;">
+<hr/>
+<label class="transportation-title"><u>Pick your transportation!</u></label>
+<p class="note">This is REQUIRED for this package</p>
+<p class="note">You can only choose one transportation service.</p>
+<label class="options" for="uo1">
+<input class="filled" id="uo1" name="requiredOption3" type="radio" value="0"/>
+<span class="label-text">Bus - FREE!</span>
+</label>
+<label class="options" for="uo2">
+<input class="filled" id="uo2" name="requiredOption3" type="radio" value="0"/>
+<span class="label-text">Car - FREE!</span>
+</label>
+<label class="options" for="uo3">
+<input class="filled" id="uo3" name="requiredOption3" type="radio" value="0"/>
+<span class="label-text">Helicopter - FREE!</span>
+</label>
+<small class="error-message" id="transportationError3" style="display: none">
+                            Transportation is required for the selected package.
+                        </small>
+<hr/>
+</div>
+<small class="error-message" id="tourPackageError" style="display: none;">
+                        Please select a tour package.
+                    </small>
+<h5 class="money-and-no-tax-one">Subtotal (Without Tax) = $<span id="totalWithoutTax">0</span></h5>
+</fieldset>
+<div class="input-box">
+<input class="theDateAndTimeInput" id="theDateAndTimeInput" name="theDateAndTimeInput" type="text"/>
+<label class="dateAndTimeLabel" for="theDateAndTimeInput">Date And Time Of Tour:<span class="req">*</span></label>
+<small></small>
+</div>
+<!-- Private Tour dropdown -->
+<div class="input-box select-box">
+<select class="private-tour-select" id="privateTour" name="privateTour">
+    <option disabled="" hidden="" selected="" value=""></option>
+    <option value="yes">Yes</option>
+<option value="no">No</option>
+</select>
+<label for="privateTour">Private Tour? (Yes/No):<span class="req">*</span></label>
+<small></small>
+</div>
+<!-- Additional comments: label ABOVE textarea -->
+    <div class="input-box textarea-box">
+  <textarea
+          class="underline-textarea"
+          id="specialRequests"
+          name="specialRequests"
+          rows="4"
+          placeholder=" "
+  ></textarea>
+        <label class="textarea-label" for="specialRequests">
+            Additional comments / special requests (optional):
+        </label>
+        <small></small>
+    </div>
+<h5 class="payment-title">Payment Information</h5>
+<div class="payment-form-container">
+<div class="input-box">
+<input autocomplete="off" id="cardHolderName" name="cardHolderName" type="text"/>
+<label for="cardHolderName">Cardholder's Name:<span class="req">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input autocomplete="cc-number" id="cardNumber" inputmode="numeric" name="cardNumber" type="text"/>
+<label for="cardNumber">Card Number:<span class="req">*</span></label>
+<small></small>
+<div class="cardTypeIcon" id="selectedCardTypeIcon" style="display: none;"></div>
+<div class="cardTypeIconsForDisplay" id="cardTypeIconsForDisplay">
+<div class="cardTypeIcon visa"></div>
+<div class="cardTypeIcon mastercard"></div>
+<div class="cardTypeIcon maestro"></div>
+<div class="cardTypeIcon diners"></div>
+<div class="cardTypeIcon american-express"></div>
+<div class="cardTypeIcon discover"></div>
+<div class="cardTypeIcon jcb"></div>
+<div class="cardTypeIcon union-pay"></div>
+</div>
+</div>
+<div class="input-box">
+<input autocomplete="cc-exp" class="expirationDate" id="expirationDate" inputmode="numeric" name="expirationDate" type="text"/>
+<label for="expirationDate">Expiration (mm/yy):<span class="req">*</span></label>
+<small></small>
+</div>
+<div class="input-box">
+<input autocomplete="cc-csc" class="securityCode" id="securityCode" inputmode="numeric" maxlength="4" name="securityCode" type="text"/>
+<label for="securityCode">CVV/CVC code<span class="req">*</span></label>
+<small></small>
+</div>
+</div>
+<h5 class="money-and-no-tax-two" id="money-and-no-tax-two">Subtotal (Without Tax) = $<span id="totalWithoutTax2">0</span></h5>
+<h5 class="sales-tax" id="sales-tax">New York Sales Tax (4.5%) = $<span id="salesTax">0</span></h5>
+<h5 class="money" id="money">Final Total (Including Tax) = $<span id="totalIncludingTax">0</span></h5>
+<div class="input-box">
+<input type="submit" value="Review Form And Submit"/>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Modal -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<h4>Review Form Details</h4>
+<p class="modal-note">Please review the following details below.
+            If you need to make any changes, click on the back button.</p>
+<p class="modal-note">Otherwise, <i class="underline-note">wait 10 seconds</i> till you can click the
+            submit the form button. This is to prevent any accidental submissions.</p>
+<p class="modal-note"><i class="underline-note">Note:</i> We hid some of the payment input
+            fields here for security reasons. If you want to see what you wrote in these fields,
+            click the reveal link next to those fields.</p>
+<p>First Name: <span class="modalFirstName" id="modalFirstName"></span></p>
+<p>Last Name: <span class="modalLastName" id="modalLastName"></span></p>
+<p>Email: <span class="modalEmail" id="modalEmail"></span></p>
+<p>Phone Number: <span class="modalPhoneNumber" id="modalPhoneNumber"></span></p>
+<p>Number Of Adults: <span class="modalNumOfAdults" id="modalNumOfAdults"></span></p>
+<p>Number Of Children: <span class="modalNumOfChildren" id="modalNumOfChildren"></span></p>
+<p>Selected Package: <span class="modalSelectedPackage" id="modalSelectedPackage"></span></p>
+<p>Selected Transportation: <span class="modalSelectedTransportation" id="modalSelectedTransportation"></span></p>
+<p>Date And Time Of The Tour: <span class="modalDateAndTime" id="modalDateAndTime"></span></p>
+<p>Cardholder's Name: <span class="modalCardholderName" id="modalCardholderName"></span></p>
+<p>Card Number: <span class="modalCardNumber" id="modalCardNumber"></span>
+<a class="unMaskLink" href="#" id="cardNumberUnmask">Reveal Card Number</a>
+</p>
+<p>Card Network: <span class="modalCardType" id="modalCardType"></span></p>
+<p>Expiration Date: <span class="modalExpDate" id="modalExpDate"></span>
+<a class="unMaskLink" href="#" id="expDateUnmask">Reveal Expiration Date</a>
+</p>
+<p>CVV/CVC code: <span class="modalCVV" id="modalCVV"></span>
+<a class="unMaskLink" href="#" id="cvvUnmask">Reveal CVV/CVC code</a>
+</p>
+<p>Total (Including Tax): <span class="modalMoney" id="modalMoney"></span></p>
+<button class="modal-button" id="backButton">Back</button>
+<button class="modal-button" id="submitFormButton">
+<div class="countdown" id="countdown"></div>
+</button>
+</div>
+</div>
+<div class="bookingConfirmationModal" id="bookingConfirmationModal">
+<div class="bookingConfirmationModal-content">
+<span class="closeConfirmationModal" id="closeConfirmationModal">×</span>
+<h4>Thank you!</h4>
+<p class="modal-note">Your tour has been successfully booked.</p>
+<p class="modal-note">You will receive a confirmation email shortly.</p>
+<p class="modal-note">Click the X on the top right to close this message.</p>
+</div>
+</div>
+<section class="home-hours-of-operation">
+<div class="row column">
+<h2 class="section-title">Hours Of Operation*</h2>
+<p class="small-note-duration"><strong>NOTE: </strong>The duration of the tour can range around 30 minutes
+            to 2 hours and 30 minutes, depending on the chosen tour package and transportation.</p>
+<div class="hours-list">
+<ul>
+<li><strong>Sunday:</strong> 9am - 6pm</li>
+<li><strong>Monday:</strong> 9am - 9pm</li>
+<li><strong>Tuesday:</strong> 9am - 9pm</li>
+<li><strong>Wednesday:</strong> 9am - 9pm</li>
+<li><strong>Thursday:</strong> 9am - 9pm</li>
+<li><strong>Friday:</strong> 9am - 9pm</li>
+<li><strong>Saturday:</strong> 9am - 6pm</li>
+</ul>
+</div>
+<p class="small-note">*Closed on certain holidays</p>
+</div>
+</section>
+<section class="home-socials">
+<div class="row column">
+<h2 class="section-title">Follow our social media accounts!</h2>
+<div class="social">
+<a class="icon-fb" href="">Facebook</a>
+<a class="icon-tw" href="">Twitter</a>
+<a class="icon-ig" href="">Instagram</a>
+</div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="row column">
+<nav class="footer-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="booking.html">Book A Tour With Us!</a></li>
+<li><a href="investors.html">Meet The Team!</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="apply.html">Join Our Team!</a></li>
+</ul>
+</nav>
+</div>
+<div class="row column">
+<div class="footer-legal">
+            ©NYCInfo Tours Inc.<br/>
+            All Rights Reserved
+        </div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script crossorigin="anonymous" integrity="sha512-s6yNeC6faUgveCQocceGXVia7ciAebyTH7hRNazwZa2FHhnxX22qaGeb9d3a8PUKdnoHo3T3bYI/0ZOjmgWkNg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/solid.min.js"></script>
+<script crossorigin="anonymous" integrity="sha512-64O4TSvYybbO2u06YzKDmZfLj/Tcr9+oorWhxzE3yDnmBRf7wvDgQweCzUf5pm2xYTdgHMMyk5tW8kWU92JENng==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/fontawesome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js" type="text/javascript"></script>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js/bundle/libphonenumber-js.min.js"></script><script src="js/booking.js"></script>
+<script>
+    function getCurrentYear() {
+        const today = new Date();
+        return today.getFullYear();
+    }
+
+    function isThanksgivingDay(year, month, day) {
+        const date = new Date(year, month, day);
+        if (date.getMonth() === 10) {
+            const dayOfWeek = date.getDay();
+            const dayOfMonth = date.getDate();
+            return dayOfWeek === 4 && dayOfMonth > 21 && dayOfMonth < 29;
+        }
+        return false;
+    }
+
+    function isLaborDay(year, month, day) {
+        const date = new Date(year, month, day);
+        if (date.getMonth() === 8) {
+            const dayOfWeek = date.getDay();
+            const dayOfMonth = date.getDate();
+            return dayOfWeek === 1 && dayOfMonth < 8;
+        }
+        return false;
+    }
+
+    function isMemorialDay(year, month, day) {
+        const date = new Date(year, month, day);
+        if (date.getMonth() === 4) {
+            const dayOfWeek = date.getDay();
+            const dayOfMonth = date.getDate();
+            if (dayOfWeek === 1 && dayOfMonth > 24) {
+                const nextDay = new Date(year, month, dayOfMonth + 1);
+                return nextDay.getMonth() !== 5;
+            }
+        }
+        return false;
+    }
+
+    function isMartinLutherKingJrDay(year, month, day) {
+        if (month === 0) {
+            const date = new Date(year, month, day);
+            const dayOfWeek = date.getDay();
+            const dayOfMonth = date.getDate();
+            return dayOfWeek === 1 && dayOfMonth > 14 && dayOfMonth < 22;
+        }
+        return false;
+    }
+
+    function isWashingtonsBirthday(year, month, day) {
+        if (month === 1) {
+            const date = new Date(year, month, day);
+            const dayOfWeek = date.getDay();
+            const dayOfMonth = date.getDate();
+            return dayOfWeek === 1 && dayOfMonth > 14 && dayOfMonth < 22;
+        }
+        return false;
+    }
+
+    function isColumbusDay(year, month, day) {
+        if (month === 9) {
+            const date = new Date(year, month, day);
+            const dayOfWeek = date.getDay();
+            const dayOfMonth = date.getDate();
+            return dayOfWeek === 1 && dayOfMonth > 7 && dayOfMonth < 15;
+        }
+        return false;
+    }
+
+    const holidays = ["01-01", "07-04", "12-25", "06-19", "11-11"];
+
+    const datepicker = flatpickr("#theDateAndTimeInput", {
+        enableTime: true,
+        noCalendar: false,
+        dateFormat: "m-d-Y h:i K",
+        minDate: "today",
+        maxDate: new Date().fp_incr(91),
+        minTime: "09:00",
+        maxTime: "21:00",
+        minuteIncrement: 30,
+        disable: [
+            function (date) {
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                const day = date.getDate();
+                const formattedDate = `${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+
+                if (
+                    holidays.includes(formattedDate) ||
+                    isThanksgivingDay(year, month, day) ||
+                    isLaborDay(year, month, day) ||
+                    isMemorialDay(year, month, day) ||
+                    isMartinLutherKingJrDay(year, month, day) ||
+                    isWashingtonsBirthday(year, month, day) ||
+                    isColumbusDay(year, month, day)
+                ) {
+                    return true;
+                }
+            },
+        ],
+        clickOpens: true,
+        enableTimeInput: false,
+        onValueUpdate: function (selectedDates, dateStr, instance) {
+            const selectedDate = instance.parseDate(dateStr, instance.config.dateFormat);
+            const now = new Date();
+
+            if (selectedDate.getDate() === now.getDate() &&
+                selectedDate.getMonth() === now.getMonth() &&
+                selectedDate.getFullYear() === now.getFullYear()) {
+                const selectedTime = selectedDate.getHours() * 60 + selectedDate.getMinutes();
+                const currentTime = now.getHours() * 60 + now.getMinutes();
+
+                if (selectedTime < currentTime) {
+                    instance.setDate(now);
+                }
+            }
+
+            const dayOfWeek = selectedDate.getDay();
+
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                instance.config.minTime = "09:00";
+                instance.config.maxTime = "18:00";
+            } else {
+                instance.config.minTime = "09:00";
+                instance.config.maxTime = "21:00";
+            }
+
+            const minutes = selectedDate.getMinutes();
+            if (minutes % 30 !== 0) {
+                const roundedMinutes = Math.ceil(minutes / 30) * 30;
+                selectedDate.setMinutes(roundedMinutes);
+                instance.setDate(selectedDate);
+            }
+        },
+    });
+</script>
+<script>
+    function displayErrorToast(message) {
+        // Allow HTML so we can show bullet lines nicely
+        Toastify({
+            text: message.replace(/\n/g, "<br>"),
+            escapeMarkup: false,
+            duration: 500000,          // ✅ auto close
+            gravity: 'top',
+            position: 'center',
+            style: {
+                background: "radial-gradient(circle at 10.6% 22.1%, rgb(206, 18, 18) 0%, rgb(122, 21, 21) 100.7%)",
+            },
+            close: true,
+            stopOnFocus: true
+        }).showToast();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,476 @@
+/* ================================
+   APPLY PAGE BASE (booking vibe)
+   ================================ */
+
+/* Hero like booking/investors pattern */
+.page-apply .site-header .title {
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0),
+    rgba(20, 222, 148, 0.45)), url(../images/applyCity.png) no-repeat top;
+    background-size: cover;
+    padding-bottom: 70.2753441802%;
+    margin: 0;
+    text-indent: -999em;
+    position: relative;
+}
+
+.page-apply .site-nav {
+    background: url(../images/apply_city_nav.png) 50% hsla(0, 0%, 100%, 0.85);
+}
+
+@media screen and (min-width: 75em) {
+    .page-apply .site-header .title:after {
+        background: linear-gradient(180deg, transparent 0, rgb(24, 220, 148) 99%, rgb(23, 218, 147));
+        content: '';
+        height: 3.75rem;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+/* Section wrapper like booking-about */
+.apply-about {
+    background: #14de94;
+    color: #fff;
+    padding: 2rem 2rem;
+    margin: 0;
+}
+
+.apply-title {
+    text-align: center;
+    margin: 0 0 1.50rem;
+}
+
+.apply-subtitle {
+    text-align: center;
+    margin: 0 auto 1.6rem;
+    max-width: 50ch;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.95);
+}
+
+.apply-footnote {
+    text-align: center;
+    margin: 1.25rem auto 0;
+    max-width: 60ch;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.95);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* ================================
+   INPUTS (copy booking style)
+   Supports input + textarea + select
+   ================================ */
+
+.page-apply .input-box {
+    margin-top: 30px;
+    position: relative;
+}
+
+/* shared field styling */
+.page-apply .input-box input,
+.page-apply .input-box textarea,
+.page-apply .input-box select {
+    border-style: none;
+    background: transparent;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    position: relative;
+    outline: none;
+    padding: 15px 0;
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 30px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* textarea tweaks */
+.page-apply .input-box textarea {
+    resize: vertical;
+    min-height: 90px;
+    padding-top: 18px;
+}
+
+/* select tweaks: give a little extra space */
+.page-apply .input-box select {
+    padding-top: 18px;
+    cursor: pointer;
+}
+
+/* ✅ DROPDOWN FIX
+   - closed select text stays white (fits green background)
+   - dropdown OPTIONS become black background with white text */
+.page-apply .input-box select option {
+    background: #000000;
+    color: #ffffff;
+}
+
+.page-apply .input-box select optgroup {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* label same as booking */
+.page-apply .input-box label {
+    color: #ffffff;
+    position: absolute;
+    padding: 20px 0;
+    font-size: 18px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+/* float label up when focused or has value */
+.page-apply .input-box input:focus ~ label,
+.page-apply .input-box input.valid ~ label,
+.page-apply .input-box input.focused ~ label,
+.page-apply .input-box textarea:focus ~ label,
+.page-apply .input-box textarea.valid ~ label,
+.page-apply .input-box textarea.focused ~ label,
+.page-apply .input-box select:focus ~ label,
+.page-apply .input-box select.valid ~ label,
+.page-apply .input-box select.focused ~ label {
+    color: #000000;
+    top: -25px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.page-apply .input-box input:focus,
+.page-apply .input-box textarea:focus,
+.page-apply .input-box select:focus {
+    outline: none;
+}
+
+/* ================================
+   ERROR MESSAGES (small like booking)
+   ================================ */
+
+.page-apply .input-box.error input,
+.page-apply .input-box.error textarea,
+.page-apply .input-box.error select {
+    border-bottom-color: #b70202;
+}
+
+.page-apply .input-box small {
+    display: block;
+    color: #b70202;
+    pointer-events: none;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    top: -22px;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Submit button like booking */
+.page-apply .form-container input[type="submit"] {
+    background: transparent;
+    color: #002972;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 0;
+}
+
+@media (hover: hover) {
+    .page-apply .form-container input[type="submit"]:hover {
+        background: #002972;
+        border: 1px solid white;
+        color: #14de94;
+        transition: 0.5s;
+    }
+}
+/* Required star + note */
+.page-apply .req-star{
+    color: #b70202;
+    font-weight: 700;
+    font-size: 0.95em;
+    margin-left: 0.15rem;
+}
+
+.page-apply .required-note{
+    text-align: center;
+    margin: 0.25rem auto 1.4rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.95);
+}
+
+/* ================================
+   APPLY REVIEW MODAL (match booking.html)
+   ================================ */
+
+.page-apply .modal {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.3s;
+    z-index: 9999;
+}
+
+.page-apply .modal-content {
+    background-color: #002972;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 60%;
+    max-width: 630px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.page-apply .modal-content h4 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #14de94;
+}
+
+.page-apply .modal-content p {
+    margin: 10px 0;
+    font-size: 0.85em;
+    color: #ffffff;
+    text-align: left;
+}
+
+.page-apply .modal-content p.modal-note {
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: white;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .page-apply .modal-content { width: 80%; }
+}
+
+.page-apply .modal-button {
+    background: transparent;
+    color: #14de94;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+@media (hover: hover) {
+    .page-apply .modal-button:hover {
+        background: #14de94;
+        border: 1px solid white;
+        color: #002971;
+        transition: 0.5s;
+    }
+}
+
+.page-apply .modal-content span { color: #14de94; }
+.page-apply i.underline-note { font-style: normal; text-decoration-line: underline; }
+.page-apply .countdown { font-weight: 700; }
+
+/* ================================
+   RESPONSIVE (match booking feel)
+   ================================ */
+
+/* 280px - 319px */
+@media screen and (min-width: 17.5em) and (max-width: 19.999em) {
+
+    .apply-about {
+        padding: 1.6rem 1rem;
+    }
+
+    .apply-title {
+        font-size: 0.95em;
+        margin: 1em 0 0.75em;
+        padding: 0 10px;
+    }
+
+    .apply-subtitle {
+        font-size: 0.92rem;
+        padding: 0 10px;
+        margin-bottom: 1.2rem;
+    }
+
+    .page-apply .input-box {
+        margin-top: 22px;
+    }
+
+    .page-apply .input-box input,
+    .page-apply .input-box textarea,
+    .page-apply .input-box select {
+        font-size: 14px;
+        padding: 12px 0;
+        margin-bottom: 22px;
+    }
+
+    .page-apply .input-box label {
+        font-size: 13px;
+        padding: 16px 0;
+    }
+
+    .page-apply .input-box input:focus ~ label,
+    .page-apply .input-box input.valid ~ label,
+    .page-apply .input-box input.focused ~ label,
+    .page-apply .input-box textarea:focus ~ label,
+    .page-apply .input-box textarea.valid ~ label,
+    .page-apply .input-box textarea.focused ~ label,
+    .page-apply .input-box select:focus ~ label,
+    .page-apply .input-box select.valid ~ label,
+    .page-apply .input-box select.focused ~ label {
+        top: -22px;
+        font-size: 12px;
+    }
+
+    .page-apply .input-box small {
+        top: -18px;
+        font-size: 0.80rem;
+    }
+
+    .page-apply .form-container input[type="submit"] {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+}
+
+/* 320px - 359px */
+@media screen and (min-width: 20em) and (max-width: 22.499em) {
+    .apply-title { font-size: 1.02em; }
+    .apply-subtitle { font-size: 0.95rem; }
+    .page-apply .input-box input,
+    .page-apply .input-box textarea,
+    .page-apply .input-box select { font-size: 14px; }
+    .page-apply .input-box label { font-size: 14px; }
+}
+
+/* 360px - 375px */
+@media screen and (min-width: 22.500em) and (max-width: 23.436em) {
+    .apply-title { font-size: 1.08em; }
+}
+
+/* 375px - 399px */
+@media screen and (min-width: 23.438em) and (max-width: 24.999em) {
+    .apply-title { font-size: 1.10em; }
+}
+
+/* 400px - 415px */
+@media screen and (min-width: 25em) and (max-width: 25.937em) {
+    .apply-title { font-size: 1.16em; }
+}
+
+/* 428px - 433px */
+@media screen and (min-width: 26.750em) and (max-width: 27.062em) {
+    .apply-title { font-size: 1.20em; }
+}
+
+
+/* ================================
+   TOASTIFY: consistent error/success notifications
+   ================================ */
+.page-apply .toastify {
+
+    padding-right: 42px;
+    padding-bottom: 28px;
+    max-width: 560px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.page-apply .toastify .toast-close {
+    position: absolute !important;
+    top: auto !important;
+    right: 12px !important;
+    bottom: 10px !important;
+    line-height: 1;
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+
+/* =========================
+   Application Confirmation Modal
+   (mirrors booking confirmation modal behavior)
+   ========================= */
+.page-apply #applicationConfirmationModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    animation: fadeIn 0.9s;
+}
+
+.page-apply .applicationConfirmationModal-content {
+    background-color: #002972;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 60%;
+    max-width: 630px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.page-apply #applicationConfirmationModal .closeConfirmationModal {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    color: white;
+}
+
+@media (hover: hover) {
+    .page-apply #applicationConfirmationModal .closeConfirmationModal:hover { color: red; }
+}
+
+.page-apply .applicationConfirmationModal-content h4 {
+    font-size: 24px;
+    color: #14de94;
+    margin-bottom: 10px;
+}
+
+.page-apply .applicationConfirmationModal-content p {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+
+/* Fade in animation (used by confirmation modal) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

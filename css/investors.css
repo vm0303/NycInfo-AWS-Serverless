@@ -1,0 +1,415 @@
+/* =========================
+   INVESTORS PAGE BASE
+   ========================= */
+
+.page-investors .site-header {
+    position: relative;
+}
+
+/* Hero image */
+.page-investors .site-header .title {
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0),
+    rgba(251, 69, 12, 0.45)), url(../images/investors.png) no-repeat top;
+    background-size: cover;
+    padding-bottom: 70.2753441802%;
+    margin: 0;
+    text-indent: -999em;
+    position: relative;
+}
+
+.page-investors .site-nav {
+    background: url(../images/cityscape.png) 50% hsla(0, 0%, 100%, 0.85);
+}
+
+@media screen and (min-width: 75em) {
+    .page-investors .site-header .title:after {
+        background: -webkit-linear-gradient(top, transparent, rgb(253, 54, 14) 99%, rgb(253, 54, 14));
+        background: linear-gradient(180deg, transparent 0, rgb(251, 54, 13) 99%, rgb(252, 53, 13));
+        content: '';
+        height: 3.75rem;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+/* =========================
+   ABOUT (red section)
+   ========================= */
+
+.page-investors .company-about {
+    background: #fc360d;
+    padding: 3.5rem 0 0;
+    margin: 0;
+}
+
+.page-investors .about-intro {
+    padding: 2.25rem 0 3rem;
+    margin: 0;
+}
+
+.page-investors .about-intro .row.column {
+    border-left: 0;
+    padding-left: 0;
+}
+
+.page-investors .about-center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page-investors .about-intro .investors-title,
+.page-investors .about-intro .story-content,
+.page-investors .about-intro .content {
+    color: #fff;
+}
+
+/* Kicker pill */
+.page-investors .about-kicker {
+    display: inline-block;
+    padding: 0.45rem 0.95rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    background: rgba(0,0,0,0.12);
+    margin: 0.9rem auto 1.75rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0.95;
+    color: #fff;
+}
+
+.page-investors .about-intro .story-content {
+    margin: 0 auto;
+    max-width: 48rem;
+    line-height: 1.7;
+}
+
+.page-investors .about-title,
+.page-investors .about-subtitle {
+    margin-top: 0;
+    color: #fff;
+}
+
+/* =========================
+   TITLES (Values / Partners headings)
+   ========================= */
+
+.page-investors .section-title--center,
+.page-investors .section-subtitle--center {
+    text-align: center;
+    color: #fff;
+}
+
+.page-investors .section-subtitle {
+    margin: 0.75rem auto 2rem;
+    max-width: 46rem;
+    opacity: 0.95;
+    color: #fff;
+}
+
+/* =========================
+   VALUES
+   ========================= */
+
+.page-investors .values-section {
+    background: #fc360d;
+    padding: 0.5rem 2rem 2.75rem;
+    margin: 0;
+}
+
+.page-investors .value-card {
+    padding: 1.6rem 1.4rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 0.75rem;
+    background: rgba(0,0,0,0.08);
+    height: 100%;
+}
+
+.page-investors .value-card .title,
+.page-investors .value-card .subtitle,
+.page-investors .value-card .content {
+    color: #fff;
+}
+
+/* =========================
+   PARTNERS wrapper
+   ========================= */
+
+.page-investors .partners-section {
+    background: #fc360d;
+    padding: 0.25rem 0 2.5rem;
+    margin: 0;
+}
+
+/* Partner cards block */
+.page-investors .investors-list {
+    background: #fc360d;
+    color: #fff;
+    padding: 0.5rem 2rem 0;
+    margin: 0;
+}
+
+.page-investors .investors-list .investor .content,
+.page-investors .investors-list .investor .subtitle {
+    color: #fff;
+}
+
+/* Partner cards */
+.page-investors .investors-list .investor {
+    padding: 1.6rem 1.4rem;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 0.75rem;
+    background: rgba(0,0,0,0.06);
+    height: 100%;
+}
+
+/* =========================
+   VALUES + PARTNERS
+   Equal-height cards (minimal) + Left-align descriptions
+   ========================= */
+
+/* Equal-height for VALUES row */
+.page-investors .values-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.page-investors .values-list > .columns {
+    display: flex;
+}
+
+/* Equal-height for PARTNERS row */
+.page-investors .investors-list .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.page-investors .investors-list .row > .columns {
+    display: flex;
+}
+
+/* Ensure cards fill their column height (no re-styling) */
+.page-investors .value-card,
+.page-investors .investors-list .investor {
+    width: 100%;
+}
+
+/* Left align ONLY the description text */
+.page-investors .value-card .content,
+.page-investors .investors-list .investor .content {
+    text-align: left;
+}
+
+/* ==========================================================
+   MOBILE: 280px -> 433px
+   Make it feel breathable (less cramped)
+   ========================================================== */
+
+/* 280px - 319px */
+@media screen and (min-width: 17.5em) and (max-width: 19.999em) {
+
+    .page-investors .company-about {
+        padding-top: 2.6rem;
+    }
+
+    .page-investors .about-intro {
+        padding: 1.6rem 0 2.2rem;
+    }
+
+    .page-investors .values-section,
+    .page-investors .investors-list {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .page-investors .section-subtitle {
+        margin: 0.65rem auto 1.35rem;
+        padding: 0 0.25rem;
+        line-height: 1.55;
+        font-size: 0.95rem;
+    }
+
+    .page-investors .about-kicker {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.75rem auto 1.2rem;
+    }
+
+    .page-investors .about-intro .story-content {
+        line-height: 1.65;
+        font-size: 0.95rem;
+        padding: 0 0.25rem;
+    }
+
+    .page-investors .value-card,
+    .page-investors .investors-list .investor {
+        padding: 1.15rem 1rem;
+        border-radius: 0.85rem;
+    }
+
+    .page-investors .value-card .title,
+    .page-investors .investor .title {
+        font-size: 1.15rem;
+        margin-bottom: 0.55rem;
+        line-height: 1.15;
+    }
+
+    .page-investors .value-card .subtitle,
+    .page-investors .investor .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.35;
+    }
+
+    .page-investors .value-card .content,
+    .page-investors .investor .content {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .page-investors .values-section {
+        padding-top: 0.35rem;
+        padding-bottom: 2.25rem;
+    }
+
+    .page-investors .partners-section {
+        padding-bottom: 2.1rem;
+    }
+}
+
+/* 320px - 359px */
+@media screen and (min-width: 20em) and (max-width: 22.499em) {
+
+    .page-investors .values-section,
+    .page-investors .investors-list {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .page-investors .about-kicker {
+        font-size: 1.02rem;
+    }
+
+    .page-investors .about-intro .story-content {
+        font-size: 0.98rem;
+        padding: 0 0.35rem;
+    }
+
+    .page-investors .value-card,
+    .page-investors .investors-list .investor {
+        padding: 1.25rem 1.1rem;
+    }
+
+    .page-investors .value-card .title,
+    .page-investors .investor .title {
+        font-size: 1.22rem;
+    }
+
+    .page-investors .value-card .content,
+    .page-investors .investor .content {
+        font-size: 0.98rem;
+    }
+}
+
+/* 360px - 375px */
+@media screen and (min-width: 22.500em) and (max-width: 23.436em) {
+
+    .page-investors .values-section,
+    .page-investors .investors-list {
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
+    }
+
+    .page-investors .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .page-investors .value-card,
+    .page-investors .investors-list .investor {
+        padding: 1.35rem 1.2rem;
+    }
+
+    .page-investors .value-card .title,
+    .page-investors .investor .title {
+        font-size: 1.3rem;
+    }
+}
+
+/* 375px - 383px */
+@media screen and (min-width: 23.438em) and (max-width: 23.999em) {
+
+    .page-investors .about-kicker {
+        font-size: 1.05rem;
+    }
+
+    .page-investors .about-intro .story-content {
+        font-size: 1rem;
+    }
+
+    .page-investors .value-card .content,
+    .page-investors .investor .content {
+        font-size: 1rem;
+    }
+}
+
+/* 384px - 399px */
+@media screen and (min-width: 24em) and (max-width: 24.999em) {
+
+    .page-investors .values-section,
+    .page-investors .investors-list {
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+    }
+
+    .page-investors .value-card,
+    .page-investors .investors-list .investor {
+        padding: 1.45rem 1.3rem;
+    }
+}
+
+/* 400px - 415px */
+@media screen and (min-width: 25em) and (max-width: 25.937em) {
+
+    .page-investors .about-intro {
+        padding-bottom: 2.6rem;
+    }
+
+    .page-investors .values-section {
+        padding-bottom: 2.6rem;
+    }
+
+    .page-investors .value-card .title,
+    .page-investors .investor .title {
+        font-size: 1.38rem;
+    }
+}
+
+/* 428px - 433px */
+@media screen and (min-width: 26.750em) and (max-width: 27.062em) {
+
+    .page-investors .values-section,
+    .page-investors .investors-list {
+        padding-left: 1.8rem;
+        padding-right: 1.8rem;
+    }
+
+    .page-investors .value-card,
+    .page-investors .investors-list .investor {
+        padding: 1.55rem 1.35rem;
+    }
+
+    .page-investors .value-card .title,
+    .page-investors .investors-list .investor .title {
+        font-size: 1.42rem;
+    }
+
+    .page-investors .value-card .content,
+    .page-investors .investors-list .investor .content {
+        font-size: 1.02rem;
+    }
+}

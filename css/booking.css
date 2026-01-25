@@ -1,0 +1,1032 @@
+/* ================================
+   BOOKING PAGE BASE
+   ================================ */
+
+.page-booking .site-header .title {
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0),
+    rgba(242, 171, 0, 0.45)), url(../images/Booking.png) no-repeat top;
+    background-size: cover;
+    padding-bottom: 70.2753441802%;
+    margin: 0;
+    text-indent: -999em;
+    position: relative;
+}
+
+.page-booking .site-nav {
+    background: url(../images/CityBookNav.png) 50% hsla(0, 0%, 100%, 0.85);
+}
+
+@media screen and (min-width: 75em) {
+    .page-booking .site-header .title:after {
+        background: -webkit-linear-gradient(top, transparent, rgb(240, 170, 0) 99%, rgb(242, 171, 0));
+        background: linear-gradient(180deg, transparent 0, rgb(240, 170, 0) 99%, rgb(242, 171, 0));
+        content: '';
+        height: 3.75rem;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.booking-about {
+    background: #F2AB00;
+    color: #fff;
+    padding: 2rem 2rem;
+}
+
+.booking-title {
+    text-align: center;
+}
+
+/* ================================
+   REQUIRED INDICATOR
+   ================================ */
+
+.req {
+    color: #b70202;
+    font-weight: 800;
+    margin-left: 4px;
+}
+
+/* ================================
+   INPUTS
+   ================================ */
+
+.input-box {
+    margin-top: 30px;
+    position: relative;
+}
+
+.input-box input {
+    border-style: none;
+    background: transparent;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    position: relative;
+    outline: none;
+    padding: 15px 0;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.input-box label {
+    color: white;
+    position: absolute;
+    padding: 20px 0;
+    font-size: 18px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input.valid ~ label,
+.input-box input.focused ~ label {
+    color: black;
+    top: -25px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+/* Adults/Children label offsets */
+.input-box label.numOfAdultsLabel,
+.input-box label.numOfChildrenLabel {
+    color: white;
+    position: absolute;
+    transform: translateY(-15px);
+    font-size: 18px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box label.additionalTextLabel {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 28px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    font-size: 16px;
+}
+
+/* Adults input focus */
+.input-box input.numOfAdultsInput:focus ~ label.numOfAdultsLabel,
+.input-box input.numOfAdultsInput.valid ~ label.numOfAdultsLabel,
+.input-box input.numOfAdultsInput.focused ~ label.numOfAdultsLabel {
+    color: black;
+    top: -35px;
+    transition: 0.5s;
+    font-size: 16px;
+}
+
+.input-box input.numOfAdultsInput:focus ~ label.additionalTextLabel,
+.input-box input.numOfAdultsInput.valid ~ label.additionalTextLabel,
+.input-box input.numOfAdultsInput.focused ~ label.additionalTextLabel {
+    color: black;
+    top: -37px;
+    transition: 0.5s;
+    font-size: 14px;
+}
+
+/* Children input focus */
+.input-box input.numOfChildrenInput:focus ~ label.numOfChildrenLabel,
+.input-box input.numOfChildrenInput.valid ~ label.numOfChildrenLabel,
+.input-box input.numOfChildrenInput.focused ~ label.numOfChildrenLabel {
+    color: black;
+    top: -35px;
+    transition: 0.5s;
+    font-size: 16px;
+}
+
+.input-box input.numOfChildrenInput:focus ~ label.additionalTextLabel,
+.input-box input.numOfChildrenInput.valid ~ label.additionalTextLabel,
+.input-box input.numOfChildrenInput.focused ~ label.additionalTextLabel {
+    color: black;
+    top: -37px;
+    transition: 0.5s;
+    font-size: 14px;
+}
+
+/* Date/Time */
+.input-box input.theDateAndTimeInput:focus ~ label.dateAndTimeLabel,
+.input-box input.theDateAndTimeInput.valid ~ label.dateAndTimeLabel,
+.input-box input.theDateAndTimeInput.focused ~ label.dateAndTimeLabel {
+    color: black;
+    top: -25px;
+    transition: 0.5s;
+    font-size: 16px;
+}
+
+.input-box input:focus {
+    outline: none;
+}
+
+.input-box.error input {
+    border-bottom-color: #b70202;
+}
+
+.input-box small {
+    color: #b70202;
+    pointer-events: none;
+    padding: 0 0;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    top: -20px;
+}
+
+small.error-message {
+    color: #b70202;
+    text-align: left;
+    pointer-events: none;
+    padding: 10px 0;
+    width: 100%;
+    display: block;
+    margin: 8px 0 0;
+}
+
+/* ================================
+   ✅ Private Tour dropdown (Yes/No)
+   ================================ */
+
+.page-booking .input-box.select-box select {
+    width: 100%;
+    background: transparent;
+    color: black;             /* black text */
+    font-size: 16px;
+
+    border: none;             /* remove all borders */
+    border-bottom: 1px solid black; /* only bottom border */
+    border-radius: 0;         /* no rounding */
+
+    padding: 15px 0 8px;
+    margin-bottom: 30px;
+
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+.page-booking .input-box.select-box label {
+    color: white;
+    position: absolute;
+    padding: 20px 0;
+    font-size: 18px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+/* Float label when select has focus/valid/focused class */
+.page-booking .input-box.select-box select:focus ~ label,
+.page-booking .input-box.select-box select.valid ~ label,
+.page-booking .input-box.select-box select.focused ~ label {
+    color: black;
+    top: -25px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+/* If error, show red border */
+.page-booking .input-box.error.select-box select {
+    border-bottom-color: #b70202;
+}
+
+/* ================================
+   Special Requests textarea (ONLY this field)
+   Label ABOVE textarea
+   ================================ */
+
+.page-booking .input-box.textarea-box {
+    position: relative;
+}
+
+.page-booking .input-box.textarea-box .textarea-label {
+    color: white;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    padding: 20px 0;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+/* When focused OR when it has content, float the label */
+.page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+.page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+    color: black;          /* change to whatever you want on float */
+    top: -30px;
+    font-size: 16px;
+}
+
+
+.underline-textarea {
+    border-style: none;
+    background: transparent;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    position: relative;
+    outline: none;
+    padding: 15px 0;
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 30px;
+    resize: vertical;
+    min-height: 90px;
+    padding-top: 18px;
+}
+
+
+
+
+
+
+/* if error, show red border for textarea */
+.page-booking .input-box.error #specialRequests {
+    border-color: #b70202;
+}
+
+/* ================================
+   PAYMENT
+   ================================ */
+
+.payment-title {
+    text-align: center;
+    margin: 30px;
+}
+
+.cardTypeIcon {
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    transform: translate(0, -20px);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* card icons */
+.cardTypeIcon.visa { background-image: url(../images/visa.svg); }
+.cardTypeIcon.mastercard { background-image: url(../images/mastercard.svg); }
+.cardTypeIcon.american-express { background-image: url(../images/american-express.svg); }
+.cardTypeIcon.discover { background-image: url(../images/discover-svgrepo-com.svg); }
+.cardTypeIcon.union-pay { background-image: url(../images/unionpay-svgrepo-com.svg); }
+.cardTypeIcon.genericCard { background-image: url(../images/payment-card-svgrepo-com.svg); }
+.cardTypeIcon.jcb { background-image: url(../images/jcb.svg); }
+.cardTypeIcon.maestro { background-image: url(../images/maestro.svg); }
+.cardTypeIcon.diners { background-image: url(../images/diners-club-international.svg); }
+
+.form-container input[type="submit"] {
+    background: transparent;
+    color: #002972;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (hover: hover) {
+    .form-container input[type="submit"]:hover {
+        background: #002972;
+        border: 1px solid white;
+        color: #f0aa00;
+        transition: 0.5s;
+    }
+}
+
+/* ================================
+   TOUR PACKAGE PICKER (Modern Cards)
+   Uses your existing HTML/JS
+   ================================ */
+
+.tourPackages {
+    margin-top: 28px;
+    padding: 18px 14px;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+}
+
+.tourPackages-title {
+    display: block;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 4px 0 10px;
+}
+
+.tourPackages .note {
+    margin: 0 auto 16px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 60ch;
+}
+
+label.options {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+
+    padding: 14px 14px;
+    margin: 10px 0;
+
+    border-radius: 14px;
+    border: 1px solid rgba(0,0,0,0.25);
+    background: rgba(255,255,255,0.14);
+
+    cursor: pointer;
+    transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+@media (hover: hover) {
+    label.options:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.18);
+        border-color: rgba(0,0,0,0.35);
+        box-shadow: 0 10px 18px rgba(0,0,0,0.14);
+    }
+}
+
+label.options .label-text {
+    display: block;
+    color: #0b0b0b;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    font-weight: 650;
+}
+
+input.filled {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+
+    border-radius: 999px;
+    border: 2px solid rgba(0, 41, 114, 0.75);
+    background: rgba(255,255,255,0.85);
+
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+
+    transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+input.filled::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: #002972;
+    transform: scale(0);
+    transition: transform 140ms ease;
+}
+
+input.filled:checked {
+    border-color: #002972;
+    background: rgba(255,255,255,0.95);
+}
+
+input.filled:checked::after {
+    transform: scale(1);
+}
+
+label.options:has(input.filled:checked) {
+    border-color: rgba(0, 41, 114, 0.95);
+    background: rgba(255,255,255,0.24);
+    box-shadow: 0 14px 26px rgba(0,0,0,0.18);
+}
+
+label.options:has(input.filled:checked) .label-text {
+    color: #001a46;
+}
+
+label.options:focus-within {
+    outline: 3px solid rgba(1, 120, 201, 0.45);
+    outline-offset: 3px;
+}
+
+/* Nested transportation panel */
+.additionalOptions {
+    margin: 8px 0 14px;
+    padding: 14px 14px 6px;
+    border-radius: 14px;
+    border: 1px solid rgba(0,0,0,0.25);
+    background: rgba(0, 41, 114, 0.14);
+}
+
+.additionalOptions label.options {
+    margin: 10px 0;
+}
+
+.transportation-title {
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    margin: 4px 0 8px;
+    font-size: 1.05rem;
+}
+
+.additionalOptions .note {
+    text-align: center;
+    margin: 6px auto;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Cleaner separator */
+.additionalOptions hr,
+.tourPackages hr {
+    border: 0;
+    height: 1px;
+    background: rgba(0,0,0,0.22);
+    margin: 14px 0;
+}
+
+
+
+/* ================================
+   LINKS + TOTALS
+   ================================ */
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+@media (hover: hover) {
+    a:hover { color: #222222; }
+}
+
+.money {
+    color: #000000;
+    text-align: center;
+    font-size: 1.30em;
+    margin-bottom: 35px;
+}
+
+.money-and-no-tax-one {
+    margin: 35px 0;
+    text-align: center;
+    font-size: 1em;
+    color: #000000;
+}
+
+.money-and-no-tax-two {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 1.10em;
+    color: #000000;
+}
+
+.sales-tax {
+    text-align: center;
+    font-size: 1.20em;
+    color: white;
+}
+
+/* ================================
+   MODAL
+   ================================ */
+
+.modal {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.3s;
+}
+
+.modal-content {
+    background-color: #002972;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 60%;
+    max-width: 630px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-content h4 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #f0aa00;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    font-size: 0.85em;
+    color: #ffffff;
+    text-align: left;
+}
+
+.modal-content p.modal-note {
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: white;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .modal-content { width: 80%; }
+}
+
+.modal-button {
+    background: transparent;
+    color: #eea900;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+@media (hover: hover) {
+    .modal-button:hover {
+        background: #eea900;
+        border: 1px solid white;
+        color: #002971;
+        transition: 0.5s;
+    }
+}
+
+.modalCardType { text-transform: uppercase; }
+.modal-content span { color: #eea900; }
+
+.unMaskLink {
+    color: white;
+    text-decoration-line: underline;
+    font-size: 12px;
+}
+
+@media (hover: hover) {
+    .unMaskLink:hover { color: #eea900; }
+}
+
+i.underline-note {
+    font-style: normal;
+    text-decoration-line: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Confirmation modal */
+.bookingConfirmationModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    animation: fadeIn 0.9s;
+}
+
+.bookingConfirmationModal-content {
+    background-color: #002972;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 60%;
+    max-width: 630px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.bookingConfirmationModal.show { display: block; }
+
+.bookingConfirmationModal .closeConfirmationModal {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    color: white;
+}
+
+@media (hover: hover) {
+    .bookingConfirmationModal .closeConfirmationModal:hover { color: red; }
+}
+
+.bookingConfirmationModal-content h4 {
+    font-size: 24px;
+    color: #f0aa00;
+    margin-bottom: 10px;
+}
+
+.bookingConfirmationModal-content p {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Required star + note */
+.booking-about .req-star{
+    color: #b70202;
+    font-weight: 700;
+    font-size: 0.95em;
+    margin-left: 0.15rem;
+}
+
+.booking-about .required-note{
+    text-align: center;
+    margin: 0.25rem auto 1.4rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.95);
+}
+
+
+/* ================================
+   RESPONSIVE MEDIA QUERIES
+   Keep your existing breakpoint
+   ================================ */
+
+/* Done - Ultra small (280px - 319px) */
+@media screen and (min-width: 17.5em) and (max-width: 19.999em) {
+
+    .booking-title {
+        font-size: 0.95em;
+        margin: 1em 0;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .input-box {
+        margin-top: 22px;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 12px 0;
+        margin-bottom: 22px;
+    }
+
+    .input-box label {
+        font-size: 13px;
+        padding: 16px 0;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input.valid ~ label,
+    .input-box input.focused ~ label {
+        top: -22px;
+        font-size: 12px;
+    }
+
+    .input-box label.numOfAdultsLabel,
+    .input-box label.numOfChildrenLabel {
+        font-size: 13px;
+        transform: translateY(-10px);
+    }
+
+    .input-box label.additionalTextLabel {
+        font-size: 11px;
+        padding: 26px 0;
+    }
+
+    .input-box input.numOfAdultsInput:focus ~ label.numOfAdultsLabel,
+    .input-box input.numOfAdultsInput.valid ~ label.numOfAdultsLabel,
+    .input-box input.numOfAdultsInput.focused ~ label.numOfAdultsLabel,
+    .input-box input.numOfChildrenInput:focus ~ label.numOfChildrenLabel,
+    .input-box input.numOfChildrenInput.valid ~ label.numOfChildrenLabel,
+    .input-box input.numOfChildrenInput.focused ~ label.numOfChildrenLabel {
+        top: -28px;
+        font-size: 12px;
+    }
+
+    .input-box input.numOfAdultsInput:focus ~ label.additionalTextLabel,
+    .input-box input.numOfAdultsInput.valid ~ label.additionalTextLabel,
+    .input-box input.numOfAdultsInput.focused ~ label.additionalTextLabel,
+    .input-box input.numOfChildrenInput:focus ~ label.additionalTextLabel,
+    .input-box input.numOfChildrenInput.valid ~ label.additionalTextLabel,
+    .input-box input.numOfChildrenInput.focused ~ label.additionalTextLabel {
+        top: -32px;
+        font-size: 10px;
+    }
+
+    /* Tour Packages: tighter card spacing */
+    .tourPackages {
+        padding: 12px 10px;
+        margin-top: 18px;
+    }
+
+    .tourPackages-title {
+        font-size: 1.02rem;
+        margin: 2px 0 8px;
+        padding: 0 6px;
+    }
+
+    .tourPackages .note {
+        font-size: 0.82rem;
+        margin-bottom: 12px;
+        padding: 0 10px;
+    }
+
+    label.options {
+        padding: 11px 11px;
+        gap: 10px;
+        margin: 9px 0;
+    }
+
+    label.options .label-text {
+        font-size: 0.86rem;
+        line-height: 1.3;
+    }
+
+    input.filled {
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+    }
+
+    input.filled::after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .additionalOptions {
+        padding: 12px 10px 6px;
+    }
+
+    .transportation-title {
+        font-size: 0.98rem;
+    }
+
+    .additionalOptions .note {
+        font-size: 0.82rem;
+        padding: 0 10px;
+    }
+
+    /* Totals spacing */
+    .money-and-no-tax-one {
+        font-size: 0.72em;
+        margin: 12px 0 6px;
+    }
+
+    .money-and-no-tax-two {
+        font-size: 0.72em;
+        margin: 6px 0;
+    }
+
+    .money {
+        font-size: 0.80em;
+        margin: 14px 0;
+    }
+
+    .sales-tax {
+        font-size: 0.72em;
+        margin: 6px 0 0;
+    }
+
+    /* Payment */
+    .payment-title {
+        font-size: 0.95em;
+        margin: 18px 0;
+        padding: 0 10px;
+    }
+
+    .cardTypeIcon {
+        width: 34px;
+        height: 34px;
+        margin-right: 4px;
+        transform: translate(0, -14px);
+    }
+
+    .form-container input[type="submit"] {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+
+    /* Modal text */
+    .modal-content { width: 86%; }
+    .modal-content h4 { font-size: 0.9em; }
+    .modal-content p { font-size: 0.6em; }
+    .modal-content p.modal-note { font-size: 0.6em; }
+
+    .unMaskLink { font-size: 9px; }
+    .modal-button { font-size: 12px; }
+
+    .bookingConfirmationModal-content { width: 90%; }
+    .bookingConfirmationModal-content h4 { font-size: 20px; }
+    .bookingConfirmationModal-content p { font-size: 13px; text-align: left; }
+    .bookingConfirmationModal .closeConfirmationModal { right: 13px; font-size: 24px; }
+}
+
+/* 320px - 359px */
+@media screen and (min-width: 20em) and (max-width: 22.499em) {
+
+    .booking-title {
+        font-size: 1.02em;
+        padding: 0 14px;
+    }
+
+    .input-box input { font-size: 14px; }
+    .input-box label { font-size: 14px; }
+
+    .tourPackages { padding: 14px 12px; }
+    .tourPackages-title { font-size: 1.06rem; }
+    .tourPackages .note { font-size: 0.88rem; padding: 0 14px; }
+
+    label.options { padding: 12px 12px; gap: 10px; }
+    label.options .label-text { font-size: 0.90rem; }
+
+    .money-and-no-tax-one { font-size: 0.78em; margin: 14px 0 6px; }
+    .money-and-no-tax-two { font-size: 0.78em; margin: 6px 0; }
+    .money { font-size: 0.86em; margin: 14px 0; }
+    .sales-tax { font-size: 0.78em; margin-top: 6px; }
+
+    .cardTypeIcon { width: 38px; height: 38px; transform: translate(0, -14px); }
+
+    .modal-content { width: 88%; }
+}
+
+/* 360px - 375px */
+@media screen and (min-width: 22.500em) and (max-width: 23.436em) {
+
+    .booking-title { font-size: 1.08em; }
+
+    .tourPackages-title { font-size: 1.10rem; }
+    .tourPackages .note { font-size: 0.90rem; }
+
+    label.options .label-text { font-size: 0.94rem; }
+
+    .money { font-size: 0.92em; }
+    .sales-tax { font-size: 0.82em; }
+
+    .cardTypeIcon { width: 44px; height: 44px; }
+}
+
+/* 375px - 383px */
+@media screen and (min-width: 23.438em) and (max-width: 23.999em) {
+
+    .booking-title { font-size: 1.10em; }
+
+    .tourPackages { padding: 16px 14px; }
+    .tourPackages-title { font-size: 1.12rem; }
+    label.options { padding: 13px 13px; }
+
+    .cardTypeIcon { width: 46px; height: 46px; }
+}
+
+/* 384px - 399px */
+@media screen and (min-width: 24em) and (max-width: 24.999em) {
+
+    .booking-title { font-size: 1.12em; }
+
+    .tourPackages-title { font-size: 1.13rem; }
+    label.options .label-text { font-size: 0.96rem; }
+
+    .cardTypeIcon { width: 48px; height: 48px; }
+}
+
+/* 390px and up small tuning */
+@media screen and (min-width: 24.375em) and (max-width: 24.999em) {
+    label.options .label-text { font-size: 0.97rem; }
+}
+
+/* 400px - 415px */
+@media screen and (min-width: 25em) and (max-width: 25.937em) {
+    .booking-title { font-size: 1.16em; }
+    .tourPackages-title { font-size: 1.16rem; }
+    .cardTypeIcon { width: 52px; height: 52px; }
+}
+
+/* 411px - 415px icons */
+@media screen and (min-width: 25.688em) and (max-width: 25.937em) {
+    .cardTypeIcon { width: 54px; height: 54px; }
+    small.error-message { padding: 10px; text-align: center; }
+}
+
+/* 428px - 433px */
+@media screen and (min-width: 26.750em) and (max-width: 27.062em) {
+    .booking-title { font-size: 1.20em; }
+    .tourPackages-title { font-size: 1.20rem; }
+    label.options .label-text { font-size: 0.99rem; }
+    .cardTypeIcon { width: 56px; height: 56px; }
+}
+
+
+/* ================================
+   POLISH: Private Tour select + underline textarea
+   ================================ */
+
+.private-tour-select {
+  background: #000;
+  color: #9aa0a6; /* placeholder color */
+  border: 1px solid #333;
+}
+
+.private-tour-select option {
+  background: #000;
+  color: #fff;
+}
+
+.private-tour-select.has-value {
+  color: #fff;
+}
+
+
+
+
+/* ================================
+   TOASTIFY: move close (X) to bottom-right
+   ================================ */
+.page-booking .toastify {
+    padding-right: 42px;
+    padding-bottom: 28px;
+    max-width: 560px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.page-booking .toastify .toast-close {
+    position: absolute !important;
+    top: auto !important;
+    right: 12px !important;
+    bottom: 10px !important;
+    line-height: 1;
+    font-size: 18px;
+    opacity: 0.95;
+}

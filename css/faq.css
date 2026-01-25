@@ -1,0 +1,207 @@
+/* =========================
+   FAQ PAGE BASE (match investors hero pattern)
+   ========================= */
+
+.page-faq .site-header {
+    position: relative;
+}
+
+/* Hero image block (same pattern as investors/booking) */
+.page-faq .site-header .title {
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0),
+    rgba(255, 232, 184, 0.45)), url(../images/faqCity.png) no-repeat top;
+    background-size: cover;
+    padding-bottom: 70.2753441802%;
+    margin: 0;
+    text-indent: -999em; /* hide hero text like investors */
+    position: relative;
+}
+
+.page-faq .site-nav {
+    background: url(../images/faq_city-nav.png) 50% hsla(0, 0%, 100%, 0.85);
+}
+
+/* Bottom band like other pages */
+@media screen and (min-width: 75em) {
+    .page-faq .site-header .title:after {
+        background: linear-gradient(180deg, transparent 0, rgb(248, 228, 187) 99%, rgb(248, 217, 151));
+        content: '';
+        height: 3.75rem;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+/* =========================
+   FAQ SECTION WRAPPER
+   ========================= */
+
+.page-faq .faq-list {
+    background: #ffe8b8;
+    color: #fff;
+    padding: 2.75rem 0 3.25rem;
+    margin: 0;
+}
+
+/* Visible title helper (mirrors investors-title behavior) */
+.page-faq .faq-title {
+    margin: 0 0 2.1rem;
+    text-align: center;
+    color: #000000;
+    line-height: 1.2;
+}
+
+
+
+/* =========================
+   FAQ ITEMS AS CARDS (NYC clean + readable)
+   ========================= */
+
+.page-faq .faq-list dl {
+    margin: 0;
+}
+
+.page-faq .faq-list dt {
+    margin: 0 0 0.6rem;
+    padding: 1.25rem 1.25rem 0.75rem;
+
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(0, 41, 114, 0.16);
+    border-radius: 16px 16px 0 0;
+
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: #000000;
+}
+
+.page-faq .faq-list dd {
+    margin: 0 0 1.6rem;
+    padding: 0 1.25rem 1.25rem;
+
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(0, 4, 12, 0.16);
+    border-top: 0;
+    border-radius: 0 0 16px 16px;
+
+    color: #000000;
+    line-height: 1.7;
+}
+
+.page-faq .faq-list dd:before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: rgba(0, 41, 114, 0.14);
+    margin: 0.25rem 0 0.9rem;
+}
+
+@media (hover: hover) {
+    .page-faq .faq-list dt:hover,
+    .page-faq .faq-list dt:hover + dd {
+        background: rgba(255, 255, 255, 0.70);
+        border-color: rgba(1, 15, 40, 0.22);
+        box-shadow: 0 12px 22px rgba(0,0,0,0.10);
+    }
+}
+
+/* ==========================================================
+   MOBILE: 280px -> 433px (breathable, not cramped)
+   ========================================================== */
+
+/* 280px - 319px */
+@media screen and (min-width: 17.5em) and (max-width: 19.999em) {
+    .page-faq .faq-list {
+        padding: 2.1rem 0 2.6rem;
+    }
+
+    .page-faq .faq-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.95rem;
+        padding: 0 0.25rem;
+    }
+
+    .page-faq .faq-list dt {
+        padding: 1rem 1rem 0.65rem;
+        font-size: 1rem;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .page-faq .faq-list dd {
+        padding: 0 1rem 1rem;
+        font-size: 0.95rem;
+        border-radius: 0 0 14px 14px;
+    }
+}
+
+/* 320px - 359px */
+@media screen and (min-width: 20em) and (max-width: 22.499em) {
+    .page-faq .faq-title {
+        font-size: 1.22rem;
+    }
+
+    .page-faq .faq-list dt {
+        font-size: 1.05rem;
+    }
+
+    .page-faq .faq-list dd {
+        font-size: 0.98rem;
+    }
+}
+
+/* 360px - 375px */
+@media screen and (min-width: 22.500em) and (max-width: 23.436em) {
+    .page-faq .faq-title {
+        font-size: 1.28rem;
+    }
+
+    .page-faq .faq-list dt {
+        padding: 1.1rem 1.1rem 0.7rem;
+    }
+
+    .page-faq .faq-list dd {
+        padding: 0 1.1rem 1.1rem;
+    }
+}
+
+/* 375px - 399px */
+@media screen and (min-width: 23.438em) and (max-width: 24.999em) {
+    .page-faq .faq-title {
+        font-size: 1.34rem;
+    }
+
+    .page-faq .faq-list dt,
+    .page-faq .faq-list dd {
+        padding-left: 1.15rem;
+        padding-right: 1.15rem;
+    }
+}
+
+/* 400px - 415px */
+@media screen and (min-width: 25em) and (max-width: 25.937em) {
+    .page-faq .faq-title {
+        font-size: 1.4rem;
+    }
+
+    .page-faq .faq-list dt,
+    .page-faq .faq-list dd {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}
+
+/* 428px - 433px */
+@media screen and (min-width: 26.750em) and (max-width: 27.062em) {
+    .page-faq .faq-title {
+        font-size: 1.45rem;
+    }
+
+    .page-faq .faq-list dt,
+    .page-faq .faq-list dd {
+        padding-left: 1.35rem;
+        padding-right: 1.35rem;
+    }
+}

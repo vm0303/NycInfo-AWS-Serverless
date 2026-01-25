@@ -1,6 +1,7 @@
 .panel-default {
     border-color: #dddddd;
 }
+
 .panel {
     background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0);
@@ -13,6 +14,7 @@
     border-color: #dddddd;
     color: #333333;
 }
+
 .panel-heading {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     border-top-left-radius: 3px;

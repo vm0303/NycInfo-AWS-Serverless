@@ -1,12 +1,13 @@
 @font-face {
-    font-family: "fairplex-wide";
+    font-family: "Nunito";
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/fairplex-wide-n4.woff") format("woff2");
+    src: url("../fonts/Nunito-VariableFont_wght.ttf") format("truetype");
 }
+
 @font-face {
-    font-family: "fairplex-wide";
+    font-family: "Nunito-Italics";
     font-style: normal;
     font-weight: 700;
-    src: url("../fonts/fairplex-wide-n7.woff") format("woff2");
+    src: url("../fonts/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
 }
