@@ -300,6 +300,7 @@
     }
 
     let applyWaitTimer = null;
+    let pendingApplication = null;
 
     function closeApplyModal() {
         const modal = document.getElementById("applyReviewModal");
@@ -422,26 +423,64 @@
             if (e.target === modal) closeApplyModal();
         });
 
-        confirmBtn?.addEventListener("click", () => {
-            // Close review modal, then show a booking-style confirmation modal
-            closeApplyModalAndShowConfirmation();
-            form.reset();
+        confirmBtn?.addEventListener("click", async () => {
+    // Send to AWS first; only show success modal when the API confirms
+    const btn = confirmBtn;
+    const originalText = btn?.textContent;
+    if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Submitting...";
+    }
 
-            // re-sync label states after reset
-            [
-                firstNameVal,
-                lastNameVal,
-                emailVal,
-                phoneVal,
-                roleVal,
-                availabilityVal,
-                neighborhoodVal,
-                whyYouVal,
-                hobbiesVal,
-                storyVal,
-                linkVal,
-            ].forEach((el) => el && el.classList.remove("valid", "focused"));
-        });
+    try {
+        if (!window.NYCINFO_API) throw new Error("API helper missing (js/api.js).");
+        const payload = pendingApplication || {
+            firstName: firstNameVal.value.trim(),
+            lastName: lastNameVal.value.trim(),
+            email: emailVal.value.trim(),
+            phone: phoneVal.value.trim(),
+            role: roleVal.value,
+            availability: availabilityVal.value,
+            neighborhood: neighborhoodVal.value.trim(),
+            whyYou: whyYouVal.value.trim(),
+            hobbies: hobbiesVal.value.trim(),
+            story: storyVal.value.trim(),
+            link: (linkVal?.value?.trim() || ""),
+            createdAt: new Date().toISOString()
+        };
+
+        await window.NYCINFO_API.postApplication(payload);
+
+        // Success UX (matches booking flow)
+        closeApplyModalAndShowConfirmation();
+
+        form.reset();
+        [
+            firstNameVal,
+            lastNameVal,
+            emailVal,
+            phoneVal,
+            roleVal,
+            availabilityVal,
+            neighborhoodVal,
+            whyYouVal,
+            hobbiesVal,
+            storyVal,
+            linkVal,
+        ].forEach((el) => el && el.classList.remove("valid", "focused"));
+
+        pendingApplication = null;
+    } catch (err) {
+        // Keep review modal open, show a toast
+        const msg = (err && err.message) ? err.message : "Submission failed. Please try again.";
+        showErrorToastWithFields([msg]);
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.textContent = originalText || "Confirm";
+        }
+    }
+});
 
         // Confirmation modal close bindings
         const confirmationModal = document.getElementById("applicationConfirmationModal");
@@ -486,20 +525,38 @@
             return;
         }
 
-        // Build summary + open modal
-        const summary = {
-            name: `${firstNameVal.value.trim()} ${lastNameVal.value.trim()}`.trim(),
-            email: emailVal.value.trim(),
-            phone: phoneVal.value.trim(),
-            role: roleVal.options[roleVal.selectedIndex]?.text || "",
-            availability: availabilityVal.options[availabilityVal.selectedIndex]?.text || "",
-            neighborhood: neighborhoodVal.value.trim(),
-            why: whyYouVal.value.trim(),
-            hobbies: hobbiesVal.value.trim(),
-            story: storyVal.value.trim(),
-            link: linkVal?.value?.trim() || "",
-        };
+        // Build payload (for API) + summary (for modal)
+const payload = {
+    firstName: firstNameVal.value.trim(),
+    lastName: lastNameVal.value.trim(),
+    email: emailVal.value.trim(),
+    phone: phoneVal.value.trim(),
+    role: roleVal.value,
+    availability: availabilityVal.value,
+    neighborhood: neighborhoodVal.value.trim(),
+    whyYou: whyYouVal.value.trim(),
+    hobbies: hobbiesVal.value.trim(),
+    story: storyVal.value.trim(),
+    link: linkVal?.value?.trim() || "",
+    createdAt: new Date().toISOString(),
+};
 
-        openApplyModal(summary);
+// Keep this around for the Confirm button (so we submit exactly what was reviewed)
+pendingApplication = payload;
+
+const summary = {
+    name: `${payload.firstName} ${payload.lastName}`.trim(),
+    email: payload.email,
+    phone: payload.phone,
+    role: roleVal.options[roleVal.selectedIndex]?.text || "",
+    availability: availabilityVal.options[availabilityVal.selectedIndex]?.text || "",
+    neighborhood: payload.neighborhood,
+    why: payload.whyYou,
+    hobbies: payload.hobbies,
+    story: payload.story,
+    link: payload.link,
+};
+
+openApplyModal(summary);
     });
 })();

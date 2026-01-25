@@ -55,6 +55,7 @@ let cvvOrCvcVal = document.querySelector("#securityCode");
 const specialRequestsVal = document.querySelector('#specialRequests');
 
 const form = document.querySelector('#bookTour');
+let pendingBooking = null;
 
 /* ===============================
    HELPERS (digits, formatting)
@@ -901,8 +902,27 @@ form.addEventListener('submit', function (e) {
     }
 });
 
-document.getElementById('submitFormButton')?.addEventListener('click', function () {
-    closeModal();
+document.getElementById('submitFormButton')?.addEventListener('click', async function () {
+    const btn = document.getElementById('submitFormButton');
+    if (btn) btn.disabled = true;
+
+    try {
+        if (!window.NYCINFO_API) throw new Error('API helper missing (js/api.js).');
+        const payload = pendingBooking || { createdAt: new Date().toISOString() };
+        await window.NYCINFO_API.postBooking(payload);
+
+        // Success: close review modal then show confirmation (same UX as before)
+        const modal = document.getElementById('modal');
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+        setTimeout(() => showConfirmationModal(), 1200);
+    } catch (err) {
+        // Failure: show toast and keep modal open
+        const msg = (err && err.message) ? err.message : 'Booking submission failed. Please try again.';
+        if (typeof displayErrorToast === 'function') displayErrorToast(msg);
+    } finally {
+        if (btn) btn.disabled = false;
+    }
 });
 
 document.getElementById('closeConfirmationModal')?.addEventListener('click', function () {
