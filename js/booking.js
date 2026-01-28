@@ -164,7 +164,7 @@ const isRequired = value => (value ?? '').toString().trim() !== '';
 const maxLimit = (length, max) => !(length > max);
 
 const isEmailValid = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 };
 
@@ -515,9 +515,9 @@ function isValidExpirationDate(expirationDate) {
     const currentMonth = now.getMonth() + 1;
 
     if (yearYY < currentYY || yearYY > currentYY + 30) return false;
-    if (yearYY === currentYY && month < currentMonth) return false;
+    return !(yearYY === currentYY && month < currentMonth);
 
-    return true;
+
 }
 
 function maskExp() {
@@ -579,8 +579,39 @@ function openModal() {
     maskExp();
     maskCVV();
 
-    document.getElementById('modalMoney').textContent = ("$" + document.getElementById('totalIncludingTax').textContent);
+    const totalEl = document.getElementById('totalIncludingTax');
+    const totalText = (totalEl?.textContent || '').replace(/[^0-9.]/g, ''); // <-- ADD THIS
+    const totalNumber = Number(totalText || 0);                             // <-- ADD THIS
+
+    document.getElementById('modalMoney').textContent = ("$" + (totalText || "0.00"));
+
+    pendingBooking = {
+        firstName: firstNameVal.value.trim(),
+        lastName: lastNameVal.value.trim(),
+        email: emailVal.value.trim(),
+        phone: phoneVal.value.trim(),
+
+        dateTime: dateAndTimeVal.value.trim(),
+
+        numAdults: Number(adultVal.value || 0),
+        numChildren: Number(childrenVal.value || 0),
+
+        total: totalNumber,  // <-- USE THIS
+
+        privateTour: (privateTourVal.value || '').trim(),
+        specialRequests: specialRequestsVal.value.trim(),
+
+        tourPackage: document.querySelector('input[name="tourPackage"]:checked')?.id || "",
+        tourPackagePricePerPerson: Number(document.querySelector('input[name="tourPackage"]:checked')?.value || 0),
+        transportationOption:
+            document.querySelector('input[name="additionalOption"]:checked')?.id
+            || document.querySelector('input[name^="requiredOption"]:checked')?.id
+            || "",
+
+        createdAt: new Date().toISOString(),
+    };
 }
+
 
 function showConfirmationModal() {
     const menuButton = document.querySelector('.btn-menu');

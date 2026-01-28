@@ -53,8 +53,8 @@ Resources:
   CreateApplicationFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
-      Handler: applications.handler
+      CodeUri: .
+      Handler: src/applications.handler
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ApplicationsTable
@@ -75,8 +75,8 @@ Resources:
   CreateBookingFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
-      Handler: bookings.handler
+      CodeUri: .
+      Handler: src/bookings.handler
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref BookingsTable
