@@ -22,9 +22,27 @@ export const handler = async (event) => {
     return json(400, { message: "Invalid JSON body" });
   }
 
-  const required = ["firstName","lastName","email","phone","dateTime","numAdults","numChildren","total"];
-  const missing = required.filter((k) => payload[k] === undefined || payload[k] === null || String(payload[k]).trim?.() === "");
-  if (missing.length) return json(400, { message: `Missing required fields: ${missing.join(", ")}` });
+  const required = [
+    "firstName",
+    "lastName",
+    "email",
+    "phone",
+    "dateTime",
+    "numAdults",
+    "numChildren",
+    "total",
+  ];
+
+  const missing = required.filter((k) => {
+    const v = payload[k];
+    if (v === undefined || v === null) return true;
+    return typeof v === "string" && v.trim() === "";
+
+  });
+
+  if (missing.length) {
+    return json(400, { message: `Missing required fields: ${missing.join(", ")}` });
+  }
 
   const bookingId = uuidv4();
   const createdAt = payload.createdAt || new Date().toISOString();
@@ -34,36 +52,68 @@ export const handler = async (event) => {
 
   const item = { bookingId, createdAt, ...safePayload };
 
-  await ddb.send(new PutCommand({
-    TableName: process.env.BOOKINGS_TABLE,
-    Item: item
-  }));
+  try {
+    await ddb.send(
+        new PutCommand({
+          TableName: process.env.BOOKINGS_TABLE,
+          Item: item,
+        })
+    );
+  } catch (e) {
+    return json(500, { message: "Failed to save booking", error: e?.message || String(e) });
+  }
 
   const from = process.env.SES_FROM_EMAIL;
   const to = payload.email;
 
-  const subject = "Your NYCInfo Tours booking request was received";
-  const textBody =
-`Hi ${payload.firstName},
+  const tourPackageLine = payload.tourPackageLabel
+      ? `Tour Package: ${payload.tourPackageLabel}`
+      : `Tour Package: ${payload.tourPackage || "N/A"}`;
 
-Thanks! We received your booking request.
+  const transportationLine = payload.transportationLabel
+      ? `Transportation: ${payload.transportationLabel}`
+      : `Transportation: None`;
 
-Date/Time: ${payload.dateTime}
-Total: $${payload.total}
+  const subject = "Your NYCInfo Tours booking is confirmed! 🗽";
 
-- NYCInfo Tours`;
+  const textBody = `Hi ${payload.firstName},
+
+Your NYCInfo Tours booking is confirmed — we can’t wait to see you!
+
+Here are your booking details:
+
+${tourPackageLine}
+${transportationLine}
+Guests: ${payload.numAdults} adult(s), ${payload.numChildren} child(ren)
+Date & Time: ${payload.dateTime}
+Total Price: $${Number(payload.total).toFixed(2)}
+
+Need to make changes?
+Please reach out to contacts@nycinfotours.app or call us at +1 (212) 555-0147.
+
+Get ready for an unforgettable NYC experience 🗽✨
+— NYCInfo Tours
+`;
 
   try {
-    await ses.send(new SendEmailCommand({
-      Source: from,
-      Destination: { ToAddresses: [to] },
-      Message: {
-        Subject: { Data: subject },
-        Body: { Text: { Data: textBody } }
-      }
-    }));
+    await ses.send(
+        new SendEmailCommand({
+          Source: from,
+          Destination: { ToAddresses: [to] },
+          Message: {
+            Subject: { Data: subject },
+            Body: { Text: { Data: textBody } },
+          },
+        })
+    );
   } catch (e) {
-    return json(200, { ok: true, bookingId, emailSent: false, warning: "Saved, but email failed (SES sandbox?)" });
+    // still return OK because booking was saved successfully
+    return json(200, {
+      ok: true,
+      bookingId,
+      emailSent: false,
+      warning: "Saved, but email failed (SES sandbox / not verified?)",
+    });
   }
 
   return json(200, { ok: true, bookingId, emailSent: true });
