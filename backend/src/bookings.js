@@ -88,12 +88,16 @@ Guests: ${payload.numAdults} adult(s), ${payload.numChildren} child(ren)
 Date & Time: ${payload.dateTime}
 Total Price: $${Number(payload.total).toFixed(2)}
 
-Need to make changes?
+You’ll receive another email closer to your tour date with
+meeting details, what to bring, and important reminders.
+
+Need to make any changes?
 Please reach out to contacts@nycinfotours.app or call us at +1 (212) 555-0147.
 
 Get ready for an unforgettable NYC experience 🗽✨
 — NYCInfo Tours
 `;
+
 
   try {
     await ses.send(
