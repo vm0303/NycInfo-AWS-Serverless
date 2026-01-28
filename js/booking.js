@@ -549,68 +549,83 @@ function isValidCVVOrCVC(cvv) {
    =============================== */
 
 function openModal() {
-    const modal = document.getElementById('modal');
-    const menuButton = document.querySelector('.btn-menu');
-    if (menuButton) {
-        menuButton.style.pointerEvents = 'none';
-        menuButton.style.opacity = '0';
+    console.log("openModal called");
+
+    const requiredIds = [
+        "modal",
+        "modalFirstName","modalLastName","modalEmail","modalPhoneNumber",
+        "modalNumOfAdults","modalNumOfChildren",
+        "modalSelectedPackage","modalSelectedTransportation",
+        "modalDateAndTime","modalCardholderName",
+        "modalCardNumber","modalExpDate","modalCVV","modalMoney",
+        "totalIncludingTax"
+    ];
+
+    const missing = requiredIds.filter(id => !document.getElementById(id));
+    if (missing.length) {
+        console.error("Modal is missing elements:", missing);
+        return;
     }
 
-    modal.style.opacity = '1';
-    modal.style.pointerEvents = 'auto';
-    document.body.style.overflow = 'hidden';
+    const modal = document.getElementById("modal");
+    const menuButton = document.querySelector(".btn-menu");
+    if (menuButton) {
+        menuButton.style.pointerEvents = "none";
+        menuButton.style.opacity = "0";
+    }
+
+    modal.style.opacity = "1";
+    modal.style.pointerEvents = "auto";
+    document.body.style.overflow = "hidden";
 
     resetUnmaskLinks();
     startCountdown();
 
-    document.getElementById('modalFirstName').textContent = firstNameVal.value;
-    document.getElementById('modalLastName').textContent = lastNameVal.value;
-    document.getElementById('modalEmail').textContent = emailVal.value;
-    document.getElementById('modalPhoneNumber').textContent = phoneVal.value;
-    document.getElementById('modalNumOfAdults').textContent = adultVal.value;
-    document.getElementById('modalNumOfChildren').textContent = childrenVal.value;
+    document.getElementById("modalFirstName").textContent = firstNameVal.value;
+    document.getElementById("modalLastName").textContent = lastNameVal.value;
+    document.getElementById("modalEmail").textContent = emailVal.value;
+    document.getElementById("modalPhoneNumber").textContent = phoneVal.value;
+    document.getElementById("modalNumOfAdults").textContent = adultVal.value;
+    document.getElementById("modalNumOfChildren").textContent = childrenVal.value;
 
     updateSelectedPackageAndTransportation();
 
-    document.getElementById('modalDateAndTime').textContent = dateAndTimeVal.value;
-    document.getElementById('modalCardholderName').textContent = cardHolderNameVal.value;
+    document.getElementById("modalDateAndTime").textContent = dateAndTimeVal.value;
+    document.getElementById("modalCardholderName").textContent = cardHolderNameVal.value;
 
     maskCardNumber();
     maskExp();
     maskCVV();
 
-    const totalEl = document.getElementById('totalIncludingTax');
-    const totalText = (totalEl?.textContent || '').replace(/[^0-9.]/g, ''); // <-- ADD THIS
-    const totalNumber = Number(totalText || 0);                             // <-- ADD THIS
+    const totalEl = document.getElementById("totalIncludingTax");
+    const totalText = (totalEl.textContent || "").replace(/[^0-9.]/g, "");
+    const totalNumber = Number(totalText || 0);
 
-    document.getElementById('modalMoney').textContent = ("$" + (totalText || "0.00"));
+    document.getElementById("modalMoney").textContent = "$" + (totalText || "0.00");
 
     pendingBooking = {
         firstName: firstNameVal.value.trim(),
         lastName: lastNameVal.value.trim(),
         email: emailVal.value.trim(),
         phone: phoneVal.value.trim(),
-
         dateTime: dateAndTimeVal.value.trim(),
-
         numAdults: Number(adultVal.value || 0),
         numChildren: Number(childrenVal.value || 0),
-
-        total: totalNumber,  // <-- USE THIS
-
-        privateTour: (privateTourVal.value || '').trim(),
+        total: totalNumber,
+        privateTour: (privateTourVal.value || "").trim(),
         specialRequests: specialRequestsVal.value.trim(),
-
         tourPackage: document.querySelector('input[name="tourPackage"]:checked')?.id || "",
         tourPackagePricePerPerson: Number(document.querySelector('input[name="tourPackage"]:checked')?.value || 0),
         transportationOption:
-            document.querySelector('input[name="additionalOption"]:checked')?.id
-            || document.querySelector('input[name^="requiredOption"]:checked')?.id
-            || "",
-
+            document.querySelector('input[name="additionalOption"]:checked')?.id ||
+            document.querySelector('input[name^="requiredOption"]:checked')?.id ||
+            "",
         createdAt: new Date().toISOString(),
     };
+
+    console.log("pendingBooking set:", pendingBooking);
 }
+
 
 
 function showConfirmationModal() {
@@ -939,8 +954,10 @@ document.getElementById('submitFormButton')?.addEventListener('click', async fun
 
     try {
         if (!window.NYCINFO_API) throw new Error('API helper missing (js/api.js).');
-        const payload = pendingBooking || { createdAt: new Date().toISOString() };
+        const payload = pendingBooking;
+        if (!payload) throw new Error("No booking payload found. Please review the form again.");
         await window.NYCINFO_API.postBooking(payload);
+
 
         // Success: close review modal then show confirmation (same UX as before)
         const modal = document.getElementById('modal');
