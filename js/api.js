@@ -29,9 +29,13 @@
     }
 
     const text = await res.text();
-    let data = null;
-    try { data = text ? JSON.parse(text) : null; }
-    catch { data = { raw: text }; }
+    let data;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch (_) {
+      data = { raw: text };
+    }
+
 
     if (!res.ok) {
       const msg =
