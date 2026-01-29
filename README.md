@@ -83,8 +83,13 @@ sam local start-api
 This project was created solely for **educational and portfolio purposes**.
 
 - All code in this repository was written by the author unless explicitly stated otherwise.
+
 - No coursework, assignments, or assessments were submitted using this project.
+
 - No real payments are processed, and no sensitive financial data is stored or transmitted.
+
 - Any resemblance to real businesses or services is purely coincidental.
+
+NOTE: This repository is shared for learning and reference only. Direct copying or submission of this work as part of academic coursework or professional evaluations is strongly discouraged and may violate academic or institutional integrity policies.
 
 ---
