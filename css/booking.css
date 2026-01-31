@@ -199,7 +199,7 @@ small.error-message {
 .page-booking .input-box.select-box select {
     width: 100%;
     background: transparent;
-    color: black;             /* black text */
+    color: white;             /* black text */
     font-size: 16px;
 
     border: none;             /* remove all borders */
@@ -776,15 +776,7 @@ i.underline-note {
         font-size: 12px;
     }
 
-    .input-box input.numOfAdultsInput:focus ~ label.additionalTextLabel,
-    .input-box input.numOfAdultsInput.valid ~ label.additionalTextLabel,
-    .input-box input.numOfAdultsInput.focused ~ label.additionalTextLabel,
-    .input-box input.numOfChildrenInput:focus ~ label.additionalTextLabel,
-    .input-box input.numOfChildrenInput.valid ~ label.additionalTextLabel,
-    .input-box input.numOfChildrenInput.focused ~ label.additionalTextLabel {
-        top: -32px;
-        font-size: 10px;
-    }
+
 
     /* Tour Packages: tighter card spacing */
     .tourPackages {
@@ -879,6 +871,53 @@ i.underline-note {
         padding: 10px 14px;
     }
 
+    /* ===== Select (Private Tour Yes/No) ===== */
+
+    .page-booking .input-box.select-box select {
+        font-size: 14px;
+        padding: 12px 0 6px;
+        margin-bottom: 22px;
+    }
+
+    .page-booking .input-box.select-box label {
+        font-size: 13px;
+        padding: 14px 0;
+    }
+
+    .page-booking .input-box.select-box select:focus ~ label,
+    .page-booking .input-box.select-box select.valid ~ label,
+    .page-booking .input-box.select-box select.focused ~ label {
+        top: -20px;
+        font-size: 12px;
+    }
+
+    /* ===== Textarea (Special Requests) ===== */
+
+    .page-booking .input-box.textarea-box
+    {
+        margin-top: 30px;
+    }
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 13px;
+        top: -40px;
+
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -45px;
+        font-size: 12px;
+    }
+
+    .underline-textarea {
+        font-size: 14px;
+        padding: 15px 0;
+        min-height: 80px;
+        margin-bottom: 22px;
+
+    }
+
     /* Modal text */
     .modal-content { width: 86%; }
     .modal-content h4 { font-size: 0.9em; }
@@ -912,6 +951,51 @@ i.underline-note {
     label.options { padding: 12px 12px; gap: 10px; }
     label.options .label-text { font-size: 0.90rem; }
 
+    /* ===== Select (Private Tour Yes/No) ===== */
+
+    .page-booking .input-box.select-box select {
+        font-size: 15px;
+        padding: 13px 0 7px;
+        margin-bottom: 24px;
+    }
+
+    .page-booking .input-box.select-box label {
+        font-size: 14px;
+        padding: 15px 0;
+    }
+
+    .page-booking .input-box.select-box select:focus ~ label,
+    .page-booking .input-box.select-box select.valid ~ label,
+    .page-booking .input-box.select-box select.focused ~ label {
+        top: -22px;
+        font-size: 13px;
+    }
+
+    /* ===== Textarea (Special Requests) ===== */
+
+    .page-booking .input-box.textarea-box {
+        margin-top: 28px;
+    }
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 14px;
+        top: -38px;
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -44px;
+        font-size: 13px;
+    }
+
+    .underline-textarea {
+        font-size: 15px;
+        padding: 15px 0;
+        min-height: 85px;
+        margin-bottom: 24px;
+    }
+
+
     .money-and-no-tax-one { font-size: 0.78em; margin: 14px 0 6px; }
     .money-and-no-tax-two { font-size: 0.78em; margin: 6px 0; }
     .money { font-size: 0.86em; margin: 14px 0; }
@@ -932,6 +1016,50 @@ i.underline-note {
 
     label.options .label-text { font-size: 0.94rem; }
 
+    /* ===== Select (Private Tour Yes/No) ===== */
+
+    .page-booking .input-box.select-box select {
+        font-size: 15px;
+        padding: 14px 0 8px;
+        margin-bottom: 26px;
+    }
+
+    .page-booking .input-box.select-box label {
+        font-size: 18px;
+        padding: 16px 0;
+    }
+
+    .page-booking .input-box.select-box select:focus ~ label,
+    .page-booking .input-box.select-box select.valid ~ label,
+    .page-booking .input-box.select-box select.focused ~ label {
+        top: -23px;
+        font-size: 16px;
+    }
+
+    /* ===== Textarea (Special Requests) ===== */
+
+    .page-booking .input-box.textarea-box {
+        margin-top: 40px;
+    }
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 18px;
+        top: -45px;
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -50px;
+        font-size: 16px;
+    }
+
+    .underline-textarea {
+        font-size: 15px;
+        padding: 16px 0;
+        min-height: 90px;
+        margin-bottom: 26px;
+    }
+
     .money { font-size: 0.92em; }
     .sales-tax { font-size: 0.82em; }
 
@@ -948,44 +1076,162 @@ i.underline-note {
     label.options { padding: 13px 13px; }
 
     .cardTypeIcon { width: 46px; height: 46px; }
+
+    /* ===== Select ===== */
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 18px;
+        top: -45px;
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -50px;
+        font-size: 16px;
+    }
+
+    .underline-textarea {
+        font-size: 15px;
+        padding: 16px 0;
+        min-height: 90px;
+        margin-bottom: 26px;
+    }
 }
+
 
 /* 384px - 399px */
 @media screen and (min-width: 24em) and (max-width: 24.999em) {
 
     .booking-title { font-size: 1.12em; }
-
     .tourPackages-title { font-size: 1.13rem; }
     label.options .label-text { font-size: 0.96rem; }
 
     .cardTypeIcon { width: 48px; height: 48px; }
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 18px;
+        top: -45px;
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -50px;
+        font-size: 16px;
+    }
+
+    .underline-textarea {
+        font-size: 15px;
+        padding: 16px 0;
+        min-height: 90px;
+        margin-bottom: 26px;
+    }
 }
 
-/* 390px and up small tuning */
-@media screen and (min-width: 24.375em) and (max-width: 24.999em) {
-    label.options .label-text { font-size: 0.97rem; }
-}
 
 /* 400px - 415px */
 @media screen and (min-width: 25em) and (max-width: 25.937em) {
+
     .booking-title { font-size: 1.16em; }
     .tourPackages-title { font-size: 1.16rem; }
     .cardTypeIcon { width: 52px; height: 52px; }
+
+    /* ===== Select ===== */
+
+    .page-booking .input-box.select-box select {
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+
+    .page-booking .input-box.select-box label {
+        font-size: 18px;
+    }
+
+    .page-booking .input-box.select-box select:focus ~ label,
+    .page-booking .input-box.select-box select.valid ~ label,
+    .page-booking .input-box.select-box select.focused ~ label {
+        top: -25px;
+        font-size: 15px;
+    }
+
+    /* ===== Textarea ===== */
+
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 18px;
+        top: -45px;
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -50px;
+        font-size: 16px;
+    }
+
+    .underline-textarea {
+        font-size: 15px;
+        padding: 16px 0;
+        min-height: 90px;
+        margin-bottom: 26px;
+    }
 }
+
 
 /* 411px - 415px icons */
 @media screen and (min-width: 25.688em) and (max-width: 25.937em) {
+
     .cardTypeIcon { width: 54px; height: 54px; }
     small.error-message { padding: 10px; text-align: center; }
 }
 
+
 /* 428px - 433px */
 @media screen and (min-width: 26.750em) and (max-width: 27.062em) {
+
     .booking-title { font-size: 1.20em; }
     .tourPackages-title { font-size: 1.20rem; }
     label.options .label-text { font-size: 0.99rem; }
+
     .cardTypeIcon { width: 56px; height: 56px; }
+
+    /* ===== Select ===== */
+
+    .page-booking .input-box.select-box select {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .page-booking .input-box.select-box label {
+        font-size: 18px;
+    }
+
+    .page-booking .input-box.select-box select:focus ~ label,
+    .page-booking .input-box.select-box select.valid ~ label,
+    .page-booking .input-box.select-box select.focused ~ label {
+        top: -26px;
+        font-size: 15px;
+    }
+
+    /* ===== Textarea ===== */
+
+    .page-booking .input-box.textarea-box .textarea-label {
+        font-size: 18px;
+        top: -45px;
+    }
+
+    .page-booking .input-box.textarea-box textarea:focus ~ .textarea-label,
+    .page-booking .input-box.textarea-box textarea:not(:placeholder-shown) ~ .textarea-label {
+        top: -50px;
+        font-size: 16px;
+    }
+
+    .underline-textarea {
+        font-size: 15px;
+        padding: 16px 0;
+        min-height: 90px;
+        margin-bottom: 26px;
+    }
 }
+
 
 
 /* ================================
@@ -999,12 +1245,12 @@ i.underline-note {
 }
 
 .private-tour-select option {
-  background: #000;
-  color: #fff;
+    background: #000;
+    color: #fff;
 }
 
 .private-tour-select.has-value {
-  color: #fff;
+    color: #fff;
 }
 
 

@@ -326,7 +326,7 @@ img {
 
 @media screen and (max-width: 40em) {
     .page-home .home-button {
-        font-size: 0.9rem;
+        font-size: 0.78rem;
         bottom: 10%;
     }
 }
