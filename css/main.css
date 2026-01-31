@@ -325,24 +325,34 @@ img {
     font-weight: 700;
 }
 
-@media screen and (max-width: 40em) {
+@media screen and (min-width: 17.5em) and (max-width: 20em) {
     .page-home .home-button {
-        font-size: 0.78rem;
+        font-size: 0.60rem;
+        bottom: 9%;
+        padding: 0.4rem 0.4rem;
+    }
+}
+@media screen and (min-width: 20em) and (max-width: 22.499em) {
+    .page-home .home-button {
+        font-size: 0.65rem;
         bottom: 10%;
     }
 }
-
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 22.5em) and (max-width: 25.875em) {
     .page-home .home-button {
-        font-size: 1.35rem;
+        font-size: 0.65rem;
+        bottom: 11%;
+    }
+}
+@media screen and (min-width: 25.876em) and (max-width: 47.999em) {
+    .page-home .home-button {
+        font-size: 0.8rem;
+        bottom: 11.5%;
     }
 }
 
-@media screen and (min-width: 90em) {
-    .page-home .home-button {
-        font-size: 1.6rem;
-    }
-}
+
+
 
 .home-about {
     background: #0098ff;
