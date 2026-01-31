@@ -16,8 +16,9 @@ html.menu-opened {
     overflow: hidden
 }
 
+
 body {
-    font-family: Nunito, san-serif, serif;
+    font-family: Nunito, sans-serif, serif;
     font-size: 125%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
